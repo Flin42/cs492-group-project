@@ -1,0 +1,88 @@
+/* src/components/GamePage.css */
+
+.game-container {
+	max-width: 600px;
+	margin: 2rem auto;
+	padding: 2rem;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	text-align: center;
+	background-color: #f9f9f9;
+  }
+  
+  .question-text {
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+	font-weight: bold;
+  }
+  
+  .question-image {
+	max-width: 100%;
+	height: auto;
+	max-height: 300px; /* Limit image height */
+	object-fit: contain; /* Maintain aspect ratio */
+	margin-bottom: 1.5rem;
+	border-radius: 4px;
+	border: 1px solid #eee;
+  }
+  
+  .options-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem; /* Spacing between buttons */
+  }
+  
+  .option-button {
+	padding: 0.8rem 1rem;
+	font-size: 1rem;
+	border: 1px solid #007bff;
+	background-color: #fff;
+	color: #007bff;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .option-button:hover {
+	background-color: #007bff;
+	color: #fff;
+  }
+  
+  .option-button:disabled {
+	border-color: #ccc;
+	color: #ccc;
+	cursor: not-allowed;
+  }
+  
+  .outcome-container {
+	margin-top: 1.5rem;
+	padding: 1rem;
+	background-color: #e9ecef;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+  }
+  
+  .outcome-text {
+	font-size: 1.1rem;
+	font-style: italic;
+	margin-bottom: 1rem;
+  }
+  
+  .next-button {
+	padding: 0.8rem 1.5rem;
+	font-size: 1rem;
+	background-color: #28a745;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+  }
+  
+  .next-button:hover {
+	background-color: #218838;
+  }
+  
+  h2 {
+	  color: #333;
+  }

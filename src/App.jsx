@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import GamePage from './components/GamePage'; // Import the GamePage
+import './App.css'; // Keep or modify default App styling
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// Placeholder for other pages
+function HomePage() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Welcome to the Adventure!</h1>
+      <Link to="/game">Start Game</Link> <br />
+      <Link to="/writeup">Read Writeup</Link>
+    </div>
+  );
 }
 
-export default App
+function WriteupPage() {
+  return <h1>Game Writeup</h1>;
+}
+
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        {/* Basic Navigation (You might want a proper Navbar component) */}
+        <nav style={{ marginBottom: '20px', paddingBottom: '10px', borderBottom: '1px solid #eee' }}>
+          <Link to="/" style={{ marginRight: '15px' }}>Home</Link>
+          <Link to="/game" style={{ marginRight: '15px' }}>Game</Link>
+          <Link to="/writeup">Writeup</Link>
+        </nav>
+
+        {/* Define Routes */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/game" element={<GamePage />} /> {/* Add route for GamePage */}
+          <Route path="/writeup" element={<WriteupPage />} />
+          {/* Add other routes as needed */}
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;

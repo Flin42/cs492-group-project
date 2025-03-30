@@ -1,6 +1,6 @@
+// src/components/GamePage.jsx
 import React, { useState } from 'react';
-import { gameQuestions } from '../assets/gameData'; // Import the questions
-import './GamePage.css'; // We'll create this for basic styling
+import { gameQuestions } from '../assets/gameData';
 
 function GamePage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -31,42 +31,54 @@ function GamePage() {
     }
   };
 
-  // --- Render Logic ---
-
   if (gameOver) {
     return (
-      <div className="game-container">
-        <h2>Game Over!</h2>
-        <p>You've completed the adventure.</p>
-        {/* Optionally add a restart button here */}
-        <button onClick={() => window.location.reload()}>Play Again?</button>
+      // Example using Tailwind classes
+      <div className="max-w-lg mx-auto my-8 p-6 border border-gray-300 rounded-lg text-center bg-white shadow-md">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Game Over!</h2>
+        <p className="mb-6 text-gray-600">You've completed the adventure.</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-200"
+        >
+          Play Again?
+        </button>
       </div>
     );
   }
 
-  // Ensure currentQuestion exists before trying to render
   if (!currentQuestion) {
-     return <div className="game-container">Loading question...</div>; // Or some error state
+     return <div className="text-center p-8">Loading question...</div>;
   }
 
   return (
-    <div className="game-container">
-      <h2>Question {currentQuestionIndex + 1} / {gameQuestions.length}</h2>
-      <p className="question-text">{currentQuestion.question}</p>
+    // Apply Tailwind classes - more examples
+    <div className="max-w-xl mx-auto my-8 p-6 md:p-8 border border-red-400 rounded-lg text-center bg-gray-50 shadow-lg">
+      <h2 className="text-xl font-semibold mb-4 text-gray-700">
+        Question {currentQuestionIndex + 1} / {gameQuestions.length}
+      </h2>
+      <p className="text-lg font-medium mb-4 text-gray-800">{currentQuestion.question}</p>
 
-      <img
-        src={currentQuestion.image}
-        alt={currentQuestion.question} // Good practice for accessibility
-        className="question-image"
-      />
+      {currentQuestion.image && ( // Conditionally render image if it exists
+           <img
+                src={currentQuestion.image}
+                alt={currentQuestion.question}
+                // Tailwind classes for images
+                className="max-w-full h-auto max-h-72 object-contain mb-6 rounded border bg-blue-500 mx-auto"
+           />
+      )}
+
 
       {!showOutcome && (
-        <div className="options-container">
+        // Tailwind classes for flex column layout and gap
+        <div className="flex flex-col gap-3">
           {currentQuestion.options.map((option) => (
             <button
-              key={option.id} // Important for React lists
+              key={option.id}
               onClick={() => handleOptionSelect(option)}
-              className="option-button"
+              // Tailwind classes for buttons
+              className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed"
+              disabled={showOutcome} // Keep disabled logic
             >
               {option.text}
             </button>
@@ -75,9 +87,14 @@ function GamePage() {
       )}
 
       {showOutcome && selectedOption && (
-        <div className="outcome-container">
-          <p className="outcome-text">{selectedOption.outcome}</p>
-          <button onClick={handleNextQuestion} className="next-button">
+        // Tailwind classes for outcome section
+        <div className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded">
+          <p className="text-base italic mb-4 text-gray-700">{selectedOption.outcome}</p>
+          <button
+             onClick={handleNextQuestion}
+             // Tailwind classes for next button
+             className="px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"
+          >
             Next Question
           </button>
         </div>

@@ -84,7 +84,7 @@ function App() {
 
         {/* === Page Content Area === */}
         {/* 'flex-grow' makes this div take up remaining vertical space */}
-        <main className="flex-grow flex flex-col container max-w-screen max-h-screen mx-auto p-4 md:p-6">
+        <main className="flex-grow flex flex-col container mx-auto p-4 md:p-6">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/game" element={<GamePage />} />

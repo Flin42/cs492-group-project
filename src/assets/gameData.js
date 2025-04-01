@@ -11,8 +11,8 @@ export const personalData = {
 export const gameQuestions = [
 	{
 		id: 'q1',
-		question: 'A shopping app prompts you for location access, promising "exclusive deals at stores near you."',
-		image: '/images/location_access.png',
+		question: 'You’ve just downloaded ShopMaster, the latest shopping app promising “exclusive deals at stores near you.” As you open it, a cheery popup appears: “To serve you better, we need your location! Because who doesn’t love deals right next door?” followed by the following options to manage your location preferences:',
+		image: '/images/kp_bald_emote.png',
 		articleLinks: [
 			"https://privacycenter.instagram.com/policy"
 		],
@@ -21,25 +21,32 @@ export const gameQuestions = [
 			{
 				id: 'q1o1',
 				text: 'Allow location access "Always"',
-				outcome: 'Constant tracking leads to detailed profiles and targeted ads.',
-				leaks: [], // ['location', 'device_info', 'habits']
-				// Always-on location means you instantly get nearby deals and personalized experiences.
+				outcome: `
+				ShopMaster tracks your every move—whether you're grabbing coffee, heading to work, or hitting the gym. 
+				You’re assaulted with hyper-targeted ads and offers, but it’s clear the app knows more about your habits 
+				than you might be comfortable with. That cozy café you visit every Monday morning? ShopMaster already has a discount ready, with more on the way.
+			`,
+				leaks: ['location', 'device_info', 'habits'],
 				conveniencePoints: 90
 			},
 			{
 				id: 'q1o2',
 				text: 'Allow location access "Only when using the app"',
-				outcome: 'Limited tracking reduces profiling.',
-				leaks: [], // ['location']
-				// You still get location-based services, but it might be less seamless.
+				outcome: `
+				ShopMaster checks in only when you’re actively browsing. 
+				You still get relevant offers while searching for deals, but the app isn’t snooping around when you’re off the clock.
+				The suggestions are helpful, and you've made some nice purchases from them. Sometimes the timing is a bit off, however, like getting a discount just as you've arrived home from shopping.`,
+				leaks: ['location'],
 				conveniencePoints: 70
 			},
 			{
 				id: 'q1o3',
 				text: 'Deny location access',
-				outcome: 'No tracking, fewer personalized offers.',
-				leaks: [], // []
-				// You miss out on location-based conveniences.
+				outcome: `
+			ShopMaster has almost no clue about where you are.
+			You get generic ads for random products from halfway across the country. 
+			You miss out on that half-price latte deal, but at least your whereabouts remain your own little secret.`,
+				leaks: [],
 				conveniencePoints: 0
 			}
 		],
@@ -114,37 +121,37 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q4',
-		question: 'You are joining a new social network with lengthy, vague terms about data sharing.',
+		question: 'All your friends have joined the brand new social media app GooseGram and have asked you to join them. After a few weeks, you decide to join this social network that everyone’s been buzzing about. As you reach the signup page, you’re faced with a massive wall of text containing vague terms and outlines about data sharing that would take hours to comb through. Do you dive in or take the shortcut?',
 		image: '/images/terms_of_service.png',
 		articleLinks: [
 			"https://www.facebook.com/terms",
 			"https://privacycenter.instagram.com/policy",
 			"https://www.tiktok.com/legal/page/row/privacy-policy/en"
 		],
-		blurb: "",
+		blurb: ``,
 		options: [
 			{
 				id: 'q4o1',
 				text: 'Accept terms without reading carefully',
-				outcome: 'Risk extensive unknown data sharing.',
-				leaks: [], // ['email', 'profile_data', 'device_info']
-				// Skipping the reading gives you immediate access.
+				outcome: `
+			You breeze through the signup process, barely reading the first word from the wall of text, and gain instant access. But with vague terms, you’ve effectively handed over the keys to your personal data. Your profile information, browsing habits, and even device details are now up for grabs.
+			Weeks later, you start receiving ads eerily tailored to your conversations. That one time you mentioned alpaca farming as a joke? You're now getting targeted emails from luxury wool suppliers and guided llama trekking tours. But that's the price you pay for "convenience"`,
+				leaks: ['email', 'profile_data', 'device_info'],
 				conveniencePoints: 95
 			},
 			{
 				id: 'q4o2',
 				text: 'Use privacy-check tool to highlight problematic sections',
-				outcome: 'Better safety, reduced risk of hidden data sharing.',
-				leaks: [], // ['limited_profile_data']
-				// Using a tool takes some extra effort but still gets you in.
+				outcome: `You take a few minutes to scan the terms using a privacy-check tool. It flags some concerning clauses—data sharing, targeted advertising, even location tracking. Concerned, you share your findings with your friends. Spooked by the details, they decide to ditch the app altogether and switch to something else. You’ve managed to dodge a privacy disaster, but the whole group chat is now looking for a new platform.`,
+				leaks: ['limited_profile_data'],
 				conveniencePoints: 50
 			},
 			{
-				id: 'q4o3',
+				id: 'q4o2',
 				text: 'Decline to join until fully understanding risks',
-				outcome: 'Highest privacy protection, no data shared.',
-				leaks: [], // []
-				// Not joining means you forgo the convenience of using the network.
+				outcome: `You decide to dig deeper before committing, determined to understand every clause. Days turn into weeks as you wade through endless legal jargon and cross-reference privacy policies. By the time you finally grasp what you're signing up for (it was nothing good) the social network is yesterday’s news.
+			Your friends have already moved on to the next big thing, leaving you with your privacy preserved but also with a headache and a newfound distrust of fine print.`,
+				leaks: [],
 				conveniencePoints: 0
 			}
 		],
@@ -222,35 +229,27 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q7',
-		question: 'You download the official app for your favorite sports league, Sportify, but notice there is no clear notice about the data being collected.',
+		question: 'You download the official app for your favorite sports league, the National Fun League (NFL), but notice there is no clear notice about what data may be collected. The app promises real-time updates, exclusive videos, and special offers. From such a huge brand and household name, how harmful could a simple sports app really be?',
 		image: '/images/sports_app.png',
 		articleLinks: [
 			"https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d"
 		],
-		blurb: "",
+		blurb: ``,
 		options: [
 			{
 				id: 'q7o1',
 				text: 'Agree and use the app without further investigation',
-				outcome: 'Extensive data collection occurs without your clear consent.',
-				leaks: [], // ['location', 'consumer_interests', 'usage_patterns']
-				// Jumping right in with the app maximizes convenience.
+				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your browsing habits, even your chat messages and posts. 
+			A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.” 
+			Now, CoachGPT is spitting out trash talk eerily similar to yours and even predicting your team’s losses with brutal accuracy. All for the sake of ‘better fan engagement.’`,
+				leaks: ['location', 'consumer_interests', 'usage_patterns'],
 				conveniencePoints: 90
 			},
 			{
 				id: 'q7o2',
-				text: 'Check app permissions carefully before accepting',
-				outcome: 'You limit data tracking by carefully reviewing permissions.',
-				leaks: [], // ['limited_usage_data']
-				// Taking the time to review settings slows you down.
-				conveniencePoints: 60
-			},
-			{
-				id: 'q7o3',
 				text: 'Avoid using the app and follow the league through a browser',
-				outcome: 'Minimizes your data exposure.',
-				leaks: [], // []
-				// Using a browser might be less integrated than the native app.
+				outcome: `You decide to stick with the league’s official website. It’s not as smooth or flashy as the app, but you avoid the hidden data collection. A few months later, you stumble upon a huge investigative report revealing the app’s shady practices—selling user data and training their AI, “CoachGPT,” on fan interactions.`,
+				leaks: [],
 				conveniencePoints: 20
 			}
 		],

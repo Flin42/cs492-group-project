@@ -55,7 +55,7 @@ function GamePage() {
 	}
 
 	return (
-		<div className="size-full flex-1 my-8 p-6 md:p-8 border rounded-lg text-center bg-gray-50 shadow-lg overflow-hidden">
+		<div className="my-8 p-24 md:p-8 border rounded-lg text-center bg-gray-50 shadow-lg overflow-hidden">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={currentQuestionIndex}
@@ -67,16 +67,16 @@ function GamePage() {
 					<h2 className="text-xl font-semibold mb-4 text-gray-700">
 						Question {currentQuestionIndex + 1} / {gameQuestions.length}
 					</h2>
-					<p className="text-lg font-medium mb-4 text-gray-800">{currentQuestion.question}</p>
 					<p className="mb-4 text-gray-700">Total Convenience Points: <strong>{conveniencePoints}</strong></p>
 
 					{currentQuestion.image && (
 						<img
 							src={currentQuestion.image}
-							alt={currentQuestion.question}
+							alt="image"
 							className="max-w-full h-auto max-h-72 object-contain mb-6 rounded border mx-auto"
 						/>
 					)}
+					<p className="text-lg font-medium mb-4 text-gray-800">{currentQuestion.question}</p>
 
 					{!showOutcome && (
 						<div className="flex flex-col gap-3">
@@ -104,7 +104,7 @@ function GamePage() {
 								</div>
 							)}
 
-							{currentQuestion.articleLinks && currentQuestion.articleLinks.length > 0 && (
+							{/* {currentQuestion.articleLinks && currentQuestion.articleLinks.length > 0 && (
 								<div className="mt-4 text-left">
 									<h3 className="text-lg font-semibold text-gray-800">Related Articles:</h3>
 									<ul className="list-disc list-inside text-blue-600">
@@ -117,7 +117,7 @@ function GamePage() {
 										))}
 									</ul>
 								</div>
-							)}
+							)} */}
 
 							<button
 								onClick={handleNextQuestion}

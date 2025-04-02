@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { gameQuestions } from '../assets/gameData';
 import { motion, AnimatePresence } from 'framer-motion';
+import GameReportPage from './GameReportPage';
 
 function GamePage() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -9,6 +10,7 @@ function GamePage() {
 	const [showOutcome, setShowOutcome] = useState(false);
 	const [gameOver, setGameOver] = useState(false);
 	const [conveniencePoints, setConveniencePoints] = useState(0);
+	const [userAnswers, setUserAnswers] = useState([]);
 
 	const currentQuestion = gameQuestions[currentQuestionIndex];
 
@@ -21,6 +23,17 @@ function GamePage() {
 
 		// Update convenience points
 		setConveniencePoints(prevPoints => prevPoints + option.conveniencePoints);
+
+		// --- Store the selected answer ---
+		setUserAnswers(prevAnswers => [
+			...prevAnswers,
+			{
+				questionIndex: currentQuestionIndex, // Store index to match with gameQuestions
+				selectedOptionId: option.id, // Store the ID of the selected option
+                selectedOptionText: option.text, // Store text for easy display
+                leaks: option.leaks || [] // Store leaks from this choice
+			}
+		]);
 	};
 
 	const handleNextQuestion = () => {
@@ -34,19 +47,27 @@ function GamePage() {
 		}
 	};
 
+	const handleRestart = () => {
+        // Reset all state to initial values
+        setCurrentQuestionIndex(0);
+        setSelectedOption(null);
+        setShowOutcome(false);
+        setGameOver(false);
+        setConveniencePoints(0);
+        setUserAnswers([]);
+        // Or uncomment below for a full page reload if preferred
+        // window.location.reload();
+    };
+
 	if (gameOver) {
+		// Render the detailed report page instead of the simple game over message
 		return (
-			<div className="max-w-lg mx-auto my-8 p-6 border border-gray-300 rounded-lg text-center bg-white shadow-md">
-				<h2 className="text-2xl font-bold mb-4 text-gray-800">Game Over!</h2>
-				<p className="mb-6 text-gray-600">You've completed the adventure.</p>
-				<p className="mb-6 text-gray-600">Your total convenience points: <strong>{conveniencePoints}</strong></p>
-				<button
-					onClick={() => window.location.reload()}
-					className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-200"
-				>
-					Play Again?
-				</button>
-			</div>
+			<GameReportPage
+				gameQuestions={gameQuestions}
+				userAnswers={userAnswers}
+				totalConveniencePoints={conveniencePoints}
+				onRestart={handleRestart} // Pass the restart handler
+			/>
 		);
 	}
 
@@ -55,7 +76,7 @@ function GamePage() {
 	}
 
 	return (
-		<div className="flex-grow flex flex-col text-center w-full h-full overflow-hidden p-12 bg-gray-50 shadow-lg">
+		<div className="m-8 p-8 rounded-lg max-w-4xl mx-auto bg-gray-50 min-h-screen w-full text-center">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={currentQuestionIndex}
@@ -81,13 +102,14 @@ function GamePage() {
 					{!showOutcome && (
 						<div className="flex flex-col gap-3">
 							{currentQuestion.options.map((option) => (
-								<button
+									<button
 									key={option.id}
 									onClick={() => handleOptionSelect(option)}
-									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed"
+									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed relative" // Added relative positioning
 									disabled={showOutcome}
 								>
-									{option.text}
+									<span className="block text-center">{option.text}</span>
+									<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.conveniencePoints}</span>
 								</button>
 							))}
 						</div>
@@ -100,7 +122,7 @@ function GamePage() {
 								onClick={handleNextQuestion}
 								className="mt-4 px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"
 							>
-								Next Question
+								{currentQuestionIndex < gameQuestions.length - 1 ? 'Next Question' : 'See Report'}
 							</button>
 						</div>
 					)}

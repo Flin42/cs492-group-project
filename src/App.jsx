@@ -5,34 +5,36 @@ import WriteupPage from './components/WriteupPage';
 
 // --- HomePage Component ---
 function HomePage() {
-	return (
-		<div className="text-center p-8">
-			<h1 className="text-4xl font-bold text-gray-800 mb-6">
-				Welcome to the Privacy Adventure!
-			</h1>
-			<p className="mb-8 text-gray-600">
-				Welcome to Privacy Adventure! This game simulates everyday online scenarios where you'll make decisions that impact your privacy.
-				Each choice offers different levels of convenience, but may also compromise your privacy to varying degrees. Your goal is to understand the trade-offs between ease-of-use and protecting your personal information.
-				As you play, you'll accumulate 'convenience points' based on your choices. Be mindful of the permissions you grant and the terms you accept. Some options may seem harmless, but could lead to unexpected data leaks!
-			</p>
+  return (
+    <div className="flex justify-center"> {/* Added flex and justify-center */}
+      <div className="text-center p-8 max-w-5xl"> {/* Added max-w-3xl */}
+        <h1 className="text-4xl font-bold text-gray-800 mb-6">
+          Welcome to the Privacy Adventure!
+        </h1>
+        <p className="mb-8 text-gray-600">
+          Welcome to Privacy Adventure! This game simulates everyday online scenarios where you'll make decisions that impact your privacy.
+          Each choice offers different levels of convenience, but may also compromise your privacy to varying degrees. Your goal is to understand the trade-offs between ease-of-use and protecting your personal information.
+          As you play, you'll accumulate 'convenience points' based on your choices. Be mindful of the permissions you grant and the terms you accept. Some options may seem harmless, but could lead to unexpected data leaks!
+        </p>
 
-			<div className="space-y-4">
-				<Link
-					to="/game"
-					className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-200 ease-in-out"
-				>
-					Start Game Simulation
-				</Link>
-				<br />
-				<Link
-					to="/writeup"
-					className="inline-block px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition duration-200 ease-in-out"
-				>
-					Read Project Writeup
-				</Link>
-			</div>
-		</div>
-	);
+        <div className="space-y-4">
+          <Link
+            to="/game"
+            className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-200 ease-in-out"
+          >
+            Start Game Simulation
+          </Link>
+          <br />
+          <Link
+            to="/writeup"
+            className="inline-block px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition duration-200 ease-in-out"
+          >
+            Read Project Writeup
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // --- Main App Component ---

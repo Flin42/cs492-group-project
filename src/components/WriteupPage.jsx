@@ -14,7 +14,7 @@ function WriteupPage() {
 		  <Disclosure
 			key={question.id}
 			as="div"
-			className="mb-12 w-full" // Added w-full here to fix the width problem.
+			className="mb-6 w-full" // Added w-full here to fix the width problem.
 		  >
 			{({ open }) => (
 			  <>

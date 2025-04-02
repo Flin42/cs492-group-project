@@ -67,9 +67,9 @@ function WriteupPage() {
 					  </div>
 					)}
   
-					{question.blurb && (
+					{question.writeup && (
 					  <div className="mb-5 p-3 bg-blue-50 border-l-4 border-blue-400 rounded-r-md">
-						<p className="text-sm text-gray-700 italic">{question.blurb}</p>
+						<p className="text-sm text-gray-700 italic">{question.writeup}</p>
 					  </div>
 					)}
   

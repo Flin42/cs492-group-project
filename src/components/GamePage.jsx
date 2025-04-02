@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { gameQuestions } from '../assets/gameData';
 import { motion, AnimatePresence } from 'framer-motion';
 import GameReportPage from './GameReportPage';
+import GameIntroPage from './GameIntroPage';
 
 function GamePage() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -11,27 +12,29 @@ function GamePage() {
 	const [gameOver, setGameOver] = useState(false);
 	const [conveniencePoints, setConveniencePoints] = useState(0);
 	const [userAnswers, setUserAnswers] = useState([]);
+	const [showIntroduction, setShowIntroduction] = useState(true);
 
 	const currentQuestion = gameQuestions[currentQuestionIndex];
 
-	// --- Event Handlers ---
+	const handleStartGame = () => {
+		setShowIntroduction(false);
+	};
+
 	const handleOptionSelect = (option) => {
 		if (showOutcome) return;
 
 		setSelectedOption(option);
 		setShowOutcome(true);
 
-		// Update convenience points
 		setConveniencePoints(prevPoints => prevPoints + option.conveniencePoints);
 
-		// --- Store the selected answer ---
 		setUserAnswers(prevAnswers => [
 			...prevAnswers,
 			{
-				questionIndex: currentQuestionIndex, // Store index to match with gameQuestions
-				selectedOptionId: option.id, // Store the ID of the selected option
-                selectedOptionText: option.text, // Store text for easy display
-                leaks: option.leaks || [] // Store leaks from this choice
+				questionIndex: currentQuestionIndex,
+				selectedOptionId: option.id,
+				selectedOptionText: option.text,
+				leaks: option.leaks || []
 			}
 		]);
 	};
@@ -39,44 +42,63 @@ function GamePage() {
 	const handleNextQuestion = () => {
 		const nextIndex = currentQuestionIndex + 1;
 		if (nextIndex < gameQuestions.length) {
-			setSelectedOption(null); // Clear previous selection instantly
-			setShowOutcome(false);   // Hide outcome instantly
-			setCurrentQuestionIndex(nextIndex); // Move to next question without delay
+			setSelectedOption(null);
+			setShowOutcome(false);
+			setCurrentQuestionIndex(nextIndex);
 		} else {
 			setGameOver(true);
 		}
 	};
 
 	const handleRestart = () => {
-        // Reset all state to initial values
-        setCurrentQuestionIndex(0);
-        setSelectedOption(null);
-        setShowOutcome(false);
-        setGameOver(false);
-        setConveniencePoints(0);
-        setUserAnswers([]);
-        // Or uncomment below for a full page reload if preferred
-        // window.location.reload();
-    };
+		setCurrentQuestionIndex(0);
+		setSelectedOption(null);
+		setShowOutcome(false);
+		setGameOver(false);
+		setConveniencePoints(0);
+		setUserAnswers([]);
+		setShowIntroduction(true);
+	};
+
+	const handleDebugComplete = () => {
+		const allAnswers = gameQuestions.map((question, index) => {
+			const option = question.options[0]; // Select the first option by default
+			return {
+				questionIndex: index,
+				selectedOptionId: option.id,
+				selectedOptionText: option.text,
+				leaks: option.leaks || []
+			};
+		});
+
+		const totalPoints = allAnswers.reduce((sum, answer) => {
+			const option = gameQuestions[answer.questionIndex].options.find(opt => opt.id === answer.selectedOptionId);
+			return sum + (option?.conveniencePoints || 0);
+		}, 0);
+
+		setUserAnswers(allAnswers);
+		setConveniencePoints(totalPoints);
+		setGameOver(true); // Directly navigate to the report page
+	};
+
+
+	if (showIntroduction) {
+		return <GameIntroPage onStart={handleStartGame} />;
+	}
 
 	if (gameOver) {
-		// Render the detailed report page instead of the simple game over message
 		return (
 			<GameReportPage
 				gameQuestions={gameQuestions}
 				userAnswers={userAnswers}
 				totalConveniencePoints={conveniencePoints}
-				onRestart={handleRestart} // Pass the restart handler
+				onRestart={handleRestart}
 			/>
 		);
 	}
 
-	if (!currentQuestion) {
-		return <div className="text-center p-8">Loading question...</div>;
-	}
-
 	return (
-		<div className="m-8 p-8 rounded-lg max-w-4xl mx-auto bg-gray-50 min-h-screen w-full text-center">
+		<div className="flex-grow flex flex-col text-center w-full h-full overflow-hidden p-12 bg-gray-50 shadow-lg relative">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={currentQuestionIndex}
@@ -94,22 +116,21 @@ function GamePage() {
 						<img
 							src={currentQuestion.image}
 							alt="image"
-							className="max-w-full h-auto max-h-72 object-contain mb-6 rounded border mx-auto"
+							className="max-w-full h-auto max-h-124 object-contain mb-6 rounded mx-auto"
 						/>
 					)}
+
 					<p className="text-lg font-medium mb-4 text-gray-800">{currentQuestion.question}</p>
 
 					{!showOutcome && (
 						<div className="flex flex-col gap-3">
 							{currentQuestion.options.map((option) => (
-									<button
+								<button
 									key={option.id}
 									onClick={() => handleOptionSelect(option)}
-									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed relative" // Added relative positioning
-									disabled={showOutcome}
+									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white"
 								>
-									<span className="block text-center">{option.text}</span>
-									<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.conveniencePoints}</span>
+									{option.text}
 								</button>
 							))}
 						</div>
@@ -117,10 +138,10 @@ function GamePage() {
 
 					{showOutcome && selectedOption && (
 						<div className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded">
-							<p className="text-base italic mb-4 text-gray-700">{selectedOption.outcome}</p>
+							<p>{selectedOption.outcome}</p>
 							<button
 								onClick={handleNextQuestion}
-								className="mt-4 px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"
+								className="mt-4 px-5 py-2 bg-green-600 text-white rounded"
 							>
 								{currentQuestionIndex < gameQuestions.length - 1 ? 'Next Question' : 'See Report'}
 							</button>
@@ -128,6 +149,14 @@ function GamePage() {
 					)}
 				</motion.div>
 			</AnimatePresence>
+
+			<button
+				onClick={handleDebugComplete}
+				className="m-30 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none"
+				title="Debug Button: Instantly End Game"
+			>
+				Debug: End Game
+			</button>
 		</div>
 	);
 }

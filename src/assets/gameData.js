@@ -13,7 +13,7 @@ export const gameQuestions = [
 		id: 'q1',
 		question: 'You’ve just downloaded ShopMaster, the latest shopping app promising “exclusive deals at stores near you.” As you open it, a cheery popup appears: “To serve you better, we need your location! Because who doesn’t love deals right next door?” followed by the following options to manage your location preferences:',
 		summary: 'Location sharing for deals', 
-		image: '/images/kp_bald_emote.png',
+		image: '/images/q1.png',
 		articleLinks: [
 			"https://privacycenter.instagram.com/policy"
 		],

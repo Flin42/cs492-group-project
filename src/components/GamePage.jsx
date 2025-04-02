@@ -5,6 +5,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 import GameReportPage from './GameReportPage';
 import GameIntroPage from './GameIntroPage';
 
+
+
+function getConvenienceColor(points) {
+    const maxPoints = 400;
+	const numSteps = 5;
+	const stepSize = maxPoints / numSteps;
+    const thresholds = [];
+    for (let i = 1; i < numSteps; i++) {
+        thresholds.push(stepSize * i);
+    }
+
+    const colors = ['#ff0000', '#ff9966', '#ffcc66', '#b3e673', '#66cc66'];// Dark Red to Dark Green gradient
+    // Determine which color to apply based on the points
+    for (let i = 0; i < thresholds.length; i++) {
+        if (points <= thresholds[i]) {
+            return colors[i];
+        }
+    }
+    return colors[colors.length - 1]; // Return green if above 250
+}
+
+
 function GamePage() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [selectedOption, setSelectedOption] = useState(null);
@@ -110,7 +132,11 @@ function GamePage() {
 					<h2 className="text-xl font-semibold mb-4 text-gray-700">
 						Question {currentQuestionIndex + 1} / {gameQuestions.length}
 					</h2>
-					<p className="mb-4 text-gray-700">Total Convenience Points: <strong>{conveniencePoints}</strong></p>
+					<p className="mb-4 text-gray-700 text-l font-bold">
+						Total Convenience Points: <strong style={{ color: getConvenienceColor(conveniencePoints) }}>
+							{conveniencePoints}
+						</strong>
+					</p>
 
 					{currentQuestion.image && (
 						<img
@@ -128,9 +154,10 @@ function GamePage() {
 								<button
 									key={option.id}
 									onClick={() => handleOptionSelect(option)}
-									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white"
+									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed relative" // Added relative positioning
 								>
-									{option.text}
+								<span className="block text-center">{option.text}</span>
+								<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.conveniencePoints}</span>
 								</button>
 							))}
 						</div>

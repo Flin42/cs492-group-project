@@ -12,6 +12,7 @@ export const gameQuestions = [
 	{
 		id: 'q1',
 		question: 'You’ve just downloaded ShopMaster, the latest shopping app promising “exclusive deals at stores near you.” As you open it, a cheery popup appears: “To serve you better, we need your location! Because who doesn’t love deals right next door?” followed by the following options to manage your location preferences:',
+		summary: 'Location sharing for deals', 
 		image: '/images/kp_bald_emote.png',
 		articleLinks: [
 			"https://privacycenter.instagram.com/policy"
@@ -22,8 +23,8 @@ export const gameQuestions = [
 				id: 'q1o1',
 				text: 'Allow location access "Always"',
 				outcome: `
-				ShopMaster tracks your every move—whether you're grabbing coffee, heading to work, or hitting the gym. 
-				You’re assaulted with hyper-targeted ads and offers, but it’s clear the app knows more about your habits 
+				ShopMaster tracks your every move—whether you're grabbing coffee, heading to work, or hitting the gym.
+				You’re assaulted with hyper-targeted ads and offers, but it’s clear the app knows more about your habits
 				than you might be comfortable with. That cozy café you visit every Monday morning? ShopMaster already has a discount ready, with more on the way.
 			`,
 				leaks: ['location', 'device_info', 'habits'],
@@ -33,7 +34,7 @@ export const gameQuestions = [
 				id: 'q1o2',
 				text: 'Allow location access "Only when using the app"',
 				outcome: `
-				ShopMaster checks in only when you’re actively browsing. 
+				ShopMaster checks in only when you’re actively browsing.
 				You still get relevant offers while searching for deals, but the app isn’t snooping around when you’re off the clock.
 				The suggestions are helpful, and you've made some nice purchases from them. Sometimes the timing is a bit off, however, like getting a discount just as you've arrived home from shopping.`,
 				leaks: ['location'],
@@ -44,7 +45,7 @@ export const gameQuestions = [
 				text: 'Deny location access',
 				outcome: `
 			ShopMaster has almost no clue about where you are.
-			You get generic ads for random products from halfway across the country. 
+			You get generic ads for random products from halfway across the country.
 			You miss out on that half-price latte deal, but at least your whereabouts remain your own little secret.`,
 				leaks: [],
 				conveniencePoints: 0
@@ -54,6 +55,7 @@ export const gameQuestions = [
 	{
 		id: 'q2',
 		question: 'You decide to close your account on a popular social media platform.',
+		summary: 'Social media account deletion', 
 		image: '/images/delete_account.png',
 		articleLinks: [],
 		blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -63,7 +65,6 @@ export const gameQuestions = [
 				text: 'Request standard account deletion',
 				outcome: 'Public profile hidden, data may remain archived internally.',
 				leaks: [], // ['archived_profile_data']
-				// Standard deletion might let you return more easily, so moderate convenience.
 				conveniencePoints: 40
 			},
 			{
@@ -71,7 +72,6 @@ export const gameQuestions = [
 				text: 'Request full data deletion (GDPR/CCPA)',
 				outcome: 'Higher chance data is truly deleted.',
 				leaks: [], // []
-				// Full deletion means losing the chance to easily return.
 				conveniencePoints: 0
 			},
 			{
@@ -79,7 +79,6 @@ export const gameQuestions = [
 				text: 'Deactivate account temporarily instead',
 				outcome: 'Your data remains fully stored and easily reactivated.',
 				leaks: [], // ['full_profile_data']
-				// This option maximizes convenience if you plan to come back.
 				conveniencePoints: 90
 			}
 		],
@@ -87,6 +86,7 @@ export const gameQuestions = [
 	{
 		id: 'q3',
 		question: 'When using a customer-support chatbot, the platform states your interactions may help train their AI.',
+		summary: 'Chatbot data for AI', 
 		image: '/images/chatbot_ai.png',
 		articleLinks: [
 			"https://privacycenter.instagram.com/policy"
@@ -98,7 +98,6 @@ export const gameQuestions = [
 				text: 'Continue using the chatbot (implicit consent)',
 				outcome: 'Your interactions become training data.',
 				leaks: [], // ['chat_logs', 'personal_info_shared_in_chat']
-				// Chatbot is quick and efficient, making your experience very smooth.
 				conveniencePoints: 90
 			},
 			{
@@ -106,7 +105,6 @@ export const gameQuestions = [
 				text: 'Explicitly opt-out and request human support',
 				outcome: 'Your data is protected from AI training.',
 				leaks: [], // []
-				// Human support tends to be slower and more cumbersome.
 				conveniencePoints: 30
 			},
 			{
@@ -114,7 +112,6 @@ export const gameQuestions = [
 				text: 'Request clarification about data usage',
 				outcome: 'Clarifies privacy implications, empowers informed decision-making.',
 				leaks: [], // []
-				// Asking for more info takes extra time, reducing immediate convenience.
 				conveniencePoints: 60
 			}
 		],
@@ -122,6 +119,7 @@ export const gameQuestions = [
 	{
 		id: 'q4',
 		question: 'All your friends have joined the brand new social media app GooseGram and have asked you to join them. After a few weeks, you decide to join this social network that everyone’s been buzzing about. As you reach the signup page, you’re faced with a massive wall of text containing vague terms and outlines about data sharing that would take hours to comb through. Do you dive in or take the shortcut?',
+		summary: 'Accepting app terms blindly', 
 		image: '/images/terms_of_service.png',
 		articleLinks: [
 			"https://www.facebook.com/terms",
@@ -147,7 +145,7 @@ export const gameQuestions = [
 				conveniencePoints: 50
 			},
 			{
-				id: 'q4o2',
+				id: 'q4o3',
 				text: 'Decline to join until fully understanding risks',
 				outcome: `You decide to dig deeper before committing, determined to understand every clause. Days turn into weeks as you wade through endless legal jargon and cross-reference privacy policies. By the time you finally grasp what you're signing up for (it was nothing good) the social network is yesterday’s news.
 			Your friends have already moved on to the next big thing, leaving you with your privacy preserved but also with a headache and a newfound distrust of fine print.`,
@@ -159,6 +157,7 @@ export const gameQuestions = [
 	{
 		id: 'q5',
 		question: 'You visit an online store and encounter a cookie consent popup.',
+		summary: 'Cookie consent choices', 
 		image: '/images/cookie_consent.png',
 		articleLinks: [],
 		blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -168,7 +167,6 @@ export const gameQuestions = [
 				text: 'Accept all cookies',
 				outcome: 'Enables extensive tracking and personalized ads.',
 				leaks: [], // ['browsing_history', 'preferences', 'device_info']
-				// Quick acceptance means the site loads and works seamlessly.
 				conveniencePoints: 90
 			},
 			{
@@ -176,7 +174,6 @@ export const gameQuestions = [
 				text: 'Accept only necessary cookies',
 				outcome: 'Minimal tracking, basic website functionality maintained.',
 				leaks: [], // ['basic_usage_data']
-				// You get the necessary functionality, but with a bit of extra hassle.
 				conveniencePoints: 60
 			},
 			{
@@ -184,7 +181,6 @@ export const gameQuestions = [
 				text: 'Manage preferences manually',
 				outcome: 'Limits data exposure by explicitly controlling cookies.',
 				leaks: [], // ['controlled_preferences']
-				// Managing settings manually takes time and interrupts your browsing.
 				conveniencePoints: 30
 			}
 		],
@@ -192,6 +188,7 @@ export const gameQuestions = [
 	{
 		id: 'q6',
 		question: 'A social media app asks for extensive permissions (microphone, contacts, gallery, camera).',
+		summary: 'App permission requests', 
 		image: '/images/app_permissions.png',
 		articleLinks: [
 			"https://www.cbc.ca/news/canada/tiktok-data-collection-privacy-1.6763626",
@@ -206,7 +203,6 @@ export const gameQuestions = [
 				text: 'Accept all permissions',
 				outcome: 'Leads to extensive data collection.',
 				leaks: [], // ['contacts', 'photos', 'audio_data', 'device_info']
-				// Accepting all permissions gives you the full feature set without delays.
 				conveniencePoints: 90
 			},
 			{
@@ -214,7 +210,6 @@ export const gameQuestions = [
 				text: 'Only grant necessary permissions',
 				outcome: 'Limited functionality but reduced privacy risk.',
 				leaks: [], // ['photos']
-				// This option may limit some features, so it’s slightly less convenient.
 				conveniencePoints: 60
 			},
 			{
@@ -222,7 +217,6 @@ export const gameQuestions = [
 				text: 'Reject all permissions',
 				outcome: 'Maximum privacy protection, reduced app functionality.',
 				leaks: [], // []
-				// Rejecting all permissions may disable key features.
 				conveniencePoints: 0
 			}
 		],
@@ -230,6 +224,7 @@ export const gameQuestions = [
 	{
 		id: 'q7',
 		question: 'You download the official app for your favorite sports league, the National Fun League (NFL), but notice there is no clear notice about what data may be collected. The app promises real-time updates, exclusive videos, and special offers. From such a huge brand and household name, how harmful could a simple sports app really be?',
+		summary: 'Sports app data collection', 
 		image: '/images/sports_app.png',
 		articleLinks: [
 			"https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d"
@@ -239,8 +234,8 @@ export const gameQuestions = [
 			{
 				id: 'q7o1',
 				text: 'Agree and use the app without further investigation',
-				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your browsing habits, even your chat messages and posts. 
-			A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.” 
+				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your Browse habits, even your chat messages and posts.
+			A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.”
 			Now, CoachGPT is spitting out trash talk eerily similar to yours and even predicting your team’s losses with brutal accuracy. All for the sake of ‘better fan engagement.’`,
 				leaks: ['location', 'consumer_interests', 'usage_patterns'],
 				conveniencePoints: 90
@@ -257,6 +252,7 @@ export const gameQuestions = [
 	{
 		id: 'q8',
 		question: 'You join a new trendy social network called FriendShare. It asks you to quickly accept the Terms of Service without clearly highlighting key points.',
+		summary: 'Quickly accept network terms', 
 		image: '/images/social_network.png',
 		articleLinks: [
 			"https://www.usatoday.com/story/tech/2020/01/28/not-reading-the-small-print-is-privacy-policy-fail/4565274002/"
@@ -268,7 +264,6 @@ export const gameQuestions = [
 				text: 'Accept terms quickly without reading',
 				outcome: 'You unknowingly agree to broad data sharing.',
 				leaks: [], // ['profile_data', 'contacts', 'shared_content']
-				// Quick acceptance gets you into the platform immediately.
 				conveniencePoints: 90
 			},
 			{
@@ -276,7 +271,6 @@ export const gameQuestions = [
 				text: 'Use a browser extension to briefly highlight red flags',
 				outcome: 'Improved privacy through proactive checking.',
 				leaks: [], // ['minimal_profile_data']
-				// Using an extension requires an extra step.
 				conveniencePoints: 50
 			},
 			{
@@ -284,7 +278,6 @@ export const gameQuestions = [
 				text: 'Decline joining completely',
 				outcome: 'You fully protect your data.',
 				leaks: [], // []
-				// Not joining means you forgo the network's convenience entirely.
 				conveniencePoints: 0
 			}
 		],
@@ -292,6 +285,7 @@ export const gameQuestions = [
 	{
 		id: 'q9',
 		question: 'The photo-sharing app PicWorld updates terms allowing the platform to use your photos commercially without explicit consent.',
+		summary: 'App using photos commercially', 
 		image: '/images/photo_sharing.png',
 		articleLinks: [
 			"https://current360.com/instagrams-new-tos-what-do-they-mean/",
@@ -304,7 +298,6 @@ export const gameQuestions = [
 				text: 'Continue using normally without reviewing',
 				outcome: 'Risk of your photos being used commercially.',
 				leaks: [], // ['photos', 'usernames']
-				// Continuing as usual means uninterrupted access to sharing your photos.
 				conveniencePoints: 90
 			},
 			{
@@ -312,7 +305,6 @@ export const gameQuestions = [
 				text: 'Limit content visibility (private mode)',
 				outcome: 'Protects content more effectively.',
 				leaks: [], // ['limited_photos']
-				// Limiting visibility might reduce how easily your photos are shared.
 				conveniencePoints: 50
 			},
 			{
@@ -320,7 +312,6 @@ export const gameQuestions = [
 				text: 'Delete sensitive photos immediately',
 				outcome: 'Reduces risk of unauthorized use.',
 				leaks: [], // []
-				// Deleting photos removes the content you might enjoy sharing.
 				conveniencePoints: 0
 			}
 		],
@@ -328,6 +319,7 @@ export const gameQuestions = [
 	{
 		id: 'q10',
 		question: 'You decide to install the video app QuickClips, which requests extensive permissions (contacts, precise location, keystrokes).',
+		summary: 'Video app permission requests', 
 		image: '/images/video_app.png',
 		articleLinks: [
 			"https://www.cbc.ca/news/canada/tiktok-data-collection-privacy-1.6763626",
@@ -340,7 +332,6 @@ export const gameQuestions = [
 				text: 'Accept all permissions',
 				outcome: 'Extensive personal data collection occurs.',
 				leaks: [], // ['contacts', 'location', 'keystrokes', 'device_info']
-				// Accepting all permissions gives you the full functionality of the app.
 				conveniencePoints: 95
 			},
 			{
@@ -348,7 +339,6 @@ export const gameQuestions = [
 				text: 'Limit permissions for basic functionality',
 				outcome: 'Limits data collection to basic app functions.',
 				leaks: [], // ['limited_device_info']
-				// With limited permissions, some features might not work as seamlessly.
 				conveniencePoints: 60
 			},
 			{
@@ -356,7 +346,6 @@ export const gameQuestions = [
 				text: 'Decline installation entirely',
 				outcome: 'Fully protects your data.',
 				leaks: [], // []
-				// Not installing means you lose out on the app’s conveniences.
 				conveniencePoints: 0
 			}
 		],
@@ -364,6 +353,7 @@ export const gameQuestions = [
 	{
 		id: 'q11',
 		question: 'You authorize a third-party app to connect to your SocialSphere profile. A bug allows the app to access your friends’ private data.',
+		summary: 'Third-party app access bug', 
 		image: '/images/social_bug.png',
 		articleLinks: [
 			"https://www.theguardian.com/technology/2018/oct/08/google-plus-security-breach-wall-street-journal"
@@ -375,7 +365,6 @@ export const gameQuestions = [
 				text: 'Authorize access immediately without deeper review',
 				outcome: 'Unintentional exposure of your friends’ private information.',
 				leaks: [], // ['friends_data', 'profile_data']
-				// Quick authorization maximizes convenience.
 				conveniencePoints: 90
 			},
 			{
@@ -383,7 +372,6 @@ export const gameQuestions = [
 				text: 'Check privacy settings carefully before granting access',
 				outcome: 'Limits potential data exposure.',
 				leaks: [], // ['limited_profile_data']
-				// Taking time to review settings is less convenient.
 				conveniencePoints: 50
 			},
 			{
@@ -391,7 +379,6 @@ export const gameQuestions = [
 				text: 'Avoid using third-party apps altogether',
 				outcome: 'Best protection against data leaks.',
 				leaks: [], // []
-				// Not using third-party apps may cut out useful features.
 				conveniencePoints: 0
 			}
 		],
@@ -399,6 +386,7 @@ export const gameQuestions = [
 	{
 		id: 'q12',
 		question: 'You set up your new smart assistant, HomeHelper, which asks permission to "analyze audio for a better experience."',
+		summary: 'Smart assistant audio analysis', 
 		image: '/images/smart_assistant.png',
 		articleLinks: [
 			"https://www.bbc.com/news/articles/cr4rvr495rgo"
@@ -410,7 +398,6 @@ export const gameQuestions = [
 				text: 'Allow all audio data analysis',
 				outcome: 'Your private conversations may be analyzed.',
 				leaks: [], // ['audio_recordings', 'private_conversations']
-				// Allowing full analysis usually means a more seamless, responsive experience.
 				conveniencePoints: 90
 			},
 			{
@@ -418,7 +405,6 @@ export const gameQuestions = [
 				text: 'Allow limited command-based interactions only',
 				outcome: 'Limits audio data collection significantly.',
 				leaks: [], // ['command_audio']
-				// Restricting to commands might mean occasional delays or missed nuances.
 				conveniencePoints: 50
 			},
 			{
@@ -426,7 +412,6 @@ export const gameQuestions = [
 				text: 'Completely opt-out of audio data sharing',
 				outcome: 'Best protection of privacy.',
 				leaks: [], // []
-				// Opting out may reduce the assistant’s effectiveness.
 				conveniencePoints: 0
 			}
 		],

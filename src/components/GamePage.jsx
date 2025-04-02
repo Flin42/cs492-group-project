@@ -55,7 +55,7 @@ function GamePage() {
 	}
 
 	return (
-		<div className="my-8 p-24 md:p-8 border rounded-lg text-center bg-gray-50 shadow-lg overflow-hidden">
+		<div className="flex-grow flex flex-col text-center w-full h-full overflow-hidden p-12 bg-gray-50 shadow-lg">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={currentQuestionIndex}
@@ -96,29 +96,6 @@ function GamePage() {
 					{showOutcome && selectedOption && (
 						<div className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded">
 							<p className="text-base italic mb-4 text-gray-700">{selectedOption.outcome}</p>
-
-							{currentQuestion.blurb && (
-								<div className="mb-4 text-left">
-									<h3 className="text-lg font-semibold text-gray-800">What actually happened:</h3>
-									<p className="text-gray-700">{currentQuestion.blurb}</p>
-								</div>
-							)}
-
-							{/* {currentQuestion.articleLinks && currentQuestion.articleLinks.length > 0 && (
-								<div className="mt-4 text-left">
-									<h3 className="text-lg font-semibold text-gray-800">Related Articles:</h3>
-									<ul className="list-disc list-inside text-blue-600">
-										{currentQuestion.articleLinks.map((link, index) => (
-											<li key={index}>
-												<a href={link} target="_blank" rel="noopener noreferrer" className="underline">
-													{link}
-												</a>
-											</li>
-										))}
-									</ul>
-								</div>
-							)} */}
-
 							<button
 								onClick={handleNextQuestion}
 								className="mt-4 px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"

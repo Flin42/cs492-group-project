@@ -165,10 +165,10 @@ function GamePage() {
 
 					{showOutcome && selectedOption && (
 						<div className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded">
-							<p>{selectedOption.outcome}</p>
+							<p className="text-base italic mb-4 text-gray-700">{selectedOption.outcome}</p>
 							<button
 								onClick={handleNextQuestion}
-								className="mt-4 px-5 py-2 bg-green-600 text-white rounded"
+								className="mt-4 px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"
 							>
 								{currentQuestionIndex < gameQuestions.length - 1 ? 'Next Question' : 'See Report'}
 							</button>

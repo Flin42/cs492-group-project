@@ -84,7 +84,9 @@ function GamePage() {
 
 	const handleDebugComplete = () => {
 		const allAnswers = gameQuestions.map((question, index) => {
-			const option = question.options[0]; // Select the first option by default
+			const randomIndex = Math.floor(Math.random() * question.options.length);
+			const option = question.options[randomIndex]; // Select a random option
+
 			return {
 				questionIndex: index,
 				selectedOptionId: option.id,
@@ -120,7 +122,7 @@ function GamePage() {
 	}
 
 	return (
-		<div className="flex-grow flex flex-col text-center w-full h-full overflow-hidden p-12 bg-gray-50 shadow-lg relative">
+		<div className="flex-grow flex flex-col text-center items-center w-full h-full overflow-hidden p-12 bg-gray-50 shadow-lg relative">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={currentQuestionIndex}
@@ -145,41 +147,43 @@ function GamePage() {
 							className="max-w-full h-auto max-h-124 object-contain mb-6 rounded mx-auto"
 						/>
 					)}
+					<div className="max-w-164">
+						<p className="text-lg font-medium mb-4 text-gray-800 text-justify">{currentQuestion.question}</p>
 
-					<p className="text-lg font-medium mb-4 text-gray-800">{currentQuestion.question}</p>
+						{!showOutcome && (
+							<div className="flex flex-col gap-3">
+								{currentQuestion.options.map((option) => (
+									<button
+										key={option.id}
+										onClick={() => handleOptionSelect(option)}
+										className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed relative" // Added relative positioning
+									>
+									<span className="block text-center">{option.text}</span>
+									<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.satisfactionPoints}</span>
+									</button>
+								))}
+							</div>
+						)}
 
-					{!showOutcome && (
-						<div className="flex flex-col gap-3">
-							{currentQuestion.options.map((option) => (
+						{showOutcome && selectedOption && (
+							<div className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded">
+								<p className="text-base italic mb-4 text-gray-700">{selectedOption.outcome}</p>
 								<button
-									key={option.id}
-									onClick={() => handleOptionSelect(option)}
-									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed relative" // Added relative positioning
+									onClick={handleNextQuestion}
+									className="mt-4 px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"
 								>
-								<span className="block text-center">{option.text}</span>
-								<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.satisfactionPoints}</span>
+									{currentQuestionIndex < gameQuestions.length - 1 ? 'Next Question' : 'See Report'}
 								</button>
-							))}
-						</div>
-					)}
-
-					{showOutcome && selectedOption && (
-						<div className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded">
-							<p className="text-base italic mb-4 text-gray-700">{selectedOption.outcome}</p>
-							<button
-								onClick={handleNextQuestion}
-								className="mt-4 px-5 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-150"
-							>
-								{currentQuestionIndex < gameQuestions.length - 1 ? 'Next Question' : 'See Report'}
-							</button>
-						</div>
-					)}
+							</div>
+						)}
+					</div>
+					
 				</motion.div>
 			</AnimatePresence>
 
 			<button
 				onClick={handleDebugComplete}
-				className="m-30 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none"
+				className="m-30 w-100 h-10 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none"
 				title="Debug Button: Instantly End Game"
 			>
 				Debug: End Game

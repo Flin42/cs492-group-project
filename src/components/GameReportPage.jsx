@@ -29,18 +29,44 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                 Your Results:
             </h2>
             <p className="text-center mb-6 text-lg text-gray-600">
-                You've completed the adventure! Here's a summary of your choices and their impact.
+                You've completed the adventure!
+            </p>
+
+            <p className="mb-6 text-lg text-gray-600">
+                Based on your choices, collected the following number of satisfaction points:
             </p>
 
             {/* Final Score */}
-            <div className="text-center mb-8 p-4 bg-blue-50 border border-blue-200 rounded-md">
-                <p className="text-xl font-semibold text-blue-800">
+            <div className="text-center mb-8 p-4 bg-green-50 border border-green-200 rounded-md">
+                <p className="text-xl font-semibold text-green-600">
                     Total Satisfaction Points: <strong>{totalSatisfactionPoints}</strong>
                 </p>
-                <p className="text-sm text-blue-700 mt-1">
-                    Higher points often mean more data shared for satisfaction.
-                </p>
             </div>
+
+            <div className="mb-8">
+
+            <p className="mb-6 text-lg text-gray-600">
+                Based on your choices, you exposed the following personal info:
+            </p>
+            {uniqueLeaks.length > 0 ? (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+                    <p className="text-red-800 font-medium mb-2">
+                        
+                    </p>
+                    <ul className="list-disc list-inside text-red-700 space-y-1">
+                        {uniqueLeaks.map(leak => (
+                            <li key={leak}>
+                                <span className="capitalize">{leak.replace(/_/g, ' ')}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ) : (
+                <p className="text-green-700 bg-green-50 border border-green-200 p-4 rounded-md">
+                    Congratulations! Based on your choices, you minimized potential data leaks effectively. We hope you were still satisfied!
+                </p>
+            )}
+        </div>
 
             {/* Summary of Choices */}
             <div className="mb-8">
@@ -80,31 +106,6 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                         );
                     })}
                 </ul>
-            </div>
-
-            {/* Summary of Leaks */}
-            <div className="mb-8">
-                <h3 className="text-2xl font-semibold mb-4 text-gray-700 border-b pb-2">
-                    Potential Data Leaks Summary:
-                </h3>
-                {uniqueLeaks.length > 0 ? (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                        <p className="text-red-800 font-medium mb-2">
-                            Based on your choices, the following types of data might have been exposed or collected:
-                        </p>
-                        <ul className="list-disc list-inside text-red-700 space-y-1">
-                            {uniqueLeaks.map(leak => (
-                                <li key={leak}>
-                                    <span className="capitalize">{leak.replace(/_/g, ' ')}</span> {/* Make it more readable */}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ) : (
-                    <p className="text-green-700 bg-green-50 border border-green-200 p-4 rounded-md">
-                        Congratulations! Based on your choices, you minimized potential data leaks effectively.
-                    </p>
-                )}
             </div>
 
             {/* Play Again Button */}

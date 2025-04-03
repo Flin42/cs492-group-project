@@ -527,7 +527,7 @@ export const gameQuestions = [
 		id: 'q12',
 		question: `
 			You just unboxed your shiny new smart home assistant, HomeHelper. It promises to streamline your home life with voice commands, seamless appliance integration, and even a friendly personality.
-			As you set it up, a notification pops up: “Allow HomeHelper to analyze audio for a better experience.” This would probably make HomeHelper a better... well, home helper, but should you let it?
+			As you set it up, a notification pops up: “Allow HomeHelper to analyze audio for a better experience.” This would probably make HomeHelper a better, well, home helper, but should you let it?
 		`,
 		summary: 'Smart assistant audio analysis',
 		image: '/images/smart_assistant.png',

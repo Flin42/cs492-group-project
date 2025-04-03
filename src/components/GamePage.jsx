@@ -8,7 +8,7 @@ import GameIntroPage from './GameIntroPage';
 
 
 function getSatisfactionColor(points) {
-    const maxPoints = 400;
+    const maxPoints = 700;
 	const numSteps = 5;
 	const stepSize = maxPoints / numSteps;
     const thresholds = [];

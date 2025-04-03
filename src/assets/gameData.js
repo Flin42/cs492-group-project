@@ -296,8 +296,14 @@ export const gameQuestions = [
 		summary: 'Sports app data collection',
 		image: '/images/sports_app.png',
 		articleLinks: [
-			"https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d",
-			"https://bbbprograms.org/media/newsroom/decisions/daap-nfl"
+			{
+			"url": "https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d",
+			"title": "NFL Teams Gathered Detailed Consumer Data Without Standard Notice or Opt-Outs - WSJ"
+			},
+			{
+			"url": "https://bbbprograms.org/media/newsroom/decisions/daap-nfl",
+			"title": "Digital Advertising Accountability Program Decision Regarding NFL - BBB Programs"
+			}
 		],
 		writeup: `
 		An investigation by the Digital Advertising Accountability Program (DAAP) revealed that all 32 NFL team apps and websites were collecting detailed consumer data without proper disclosure or the option to opt out, violating standards set by the Digital Advertising Alliance (DAA). This included gathering precise geolocation details and online behavior, which were shared with third-party advertisers.
@@ -397,6 +403,7 @@ export const gameQuestions = [
 				outcome: `
 					Unknown to you, your photos are legally usable by PicWorld for advertising, promotions, or even resale.
 					Weeks later, you find one of your carefully curated beach photos on a billboard promoting a snake oil based sunscreen (which you don’t endorse).
+					To make things stranger, the latest image generation models from UnstableDiffusion create images that look a lot like your photos when you prompt it to create an image of "a fun filled vacation".
 				`,
 				leaks: [], // ['photos', 'usernames']
 				satisfactionPoints: 90
@@ -431,6 +438,10 @@ export const gameQuestions = [
 			{
 				"url": "https://foundation.mozilla.org/en/privacynotincluded/nissan/",
 				"title": "Nissan | Privacy & security guide - Mozilla Foundation"
+			},
+			{
+				"url": "https://foundation.mozilla.org/en/privacynotincluded/articles/its-official-cars-are-the-worst-product-category-we-have-ever-reviewed-for-privacy/",
+				"title": "It’s Official: Cars Are the Worst Product Category We Have Ever Reviewed for Privacy"
 			},
 			{
 				"url": "https://www.theguardian.com/business/2023/sep/06/cars-collect-extensive-personal-data-on-drivers-study-warns",

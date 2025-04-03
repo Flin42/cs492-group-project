@@ -14,10 +14,21 @@ export const gameQuestions = [
 		question: 'You’ve just downloaded ShopMaster, the latest shopping app promising “exclusive deals at stores near you.” As you open it, a cheery popup appears: “To serve you better, we need your location! Because who doesn’t love deals right next door?” followed by the following options to manage your location preferences:',
 		summary: 'Location sharing for deals', 
 		image: '/images/q1.png',
-		articleLinks: [
-			"https://privacycenter.instagram.com/policy"
+		"articleLinks": [
+			{
+			"url": "https://www.ey.com/en_gl/insights/forensic-integrity-services/how-location-tracking-is-raising-the-stakes-on-privacy-protection",
+			"title": "How location tracking is raising the stakes on privacy protection"
+			},
+			{
+			"url": "https://www.nytimes.com/interactive/2019/12/19/opinion/location-tracking-cell-phone.html",
+			"title": "Twelve Million Phones, One Dataset, Zero Privacy"
+			},
+			{
+			"url": "https://www.nytimes.com/2019/01/03/technology/weather-channel-app-lawsuit.html",
+			"title": "Los Angeles Accuses Weather Channel App of Covertly Mining User Data"
+			}
 		],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		writeup: "The legal battles in 2019 surrounding The Weather Channel app highlight a critical privacy issue: the potential for apps to misuse location data. These lawsuits revealed allegations of the app secretly tracking users' precise movements and selling that information to third parties, often without clear consent. This demonstrates how 'always allow' location permissions can lead to a significant breach of privacy, enabling companies to compile detailed profiles of your daily habits and whereabouts. Such data can be exploited for targeted advertising, or even worse, fall into the hands of those with malicious intent. It reinforces the necessity of carefully managing app permissions and understanding the potential consequences of sharing your location information.",
 		options: [
 			{
 				id: 'q1o1',
@@ -57,28 +68,37 @@ export const gameQuestions = [
 		question: 'You decide to close your account on a popular social media platform.',
 		summary: 'Social media account deletion', 
 		image: '/images/delete_account.png',
-		articleLinks: [],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		articleLinks: [
+			{
+				url: "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-staff-report-finds-large-social-media-video-streaming-companies-have-engaged-vast-surveillance#:~:text=The%20report%20found%20that%20the,and%20about%20both%20users%20and",
+				title:  "FTC Staff Report Finds Large Social Media and Video Streaming Companies Have Engaged in Vast Surveillance of Users with Lax Privacy Controls and Inadequate Safeguards for Kids and Teens"
+			},
+			{
+				url: "https://www.ftc.gov/reports/look-behind-screens-examining-data-practices-social-media-video-streaming-services",
+				title:  "A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services"
+			}
+		],
+		writeup: "A 2024 FTC staff report sheds light on the significant privacy risks associated with social media and video streaming platforms, highlighting the critical distinction between temporarily deactivating an account and requesting full data deletion. As the report indicates, these companies engage in 'vast surveillance' of users, often retaining extensive data even after account deactivation. This practice exposes users to prolonged privacy vulnerabilities, as their information remains on company servers, susceptible to breaches or misuse. In contrast, pursuing a full data deletion, while not always guaranteeing complete removal due to backup systems and legal obligations, significantly reduces this risk. The FTC's findings underscore the importance of understanding a company's data retention policies and the necessity of advocating for true data deletion to minimize long-term privacy threats.",
 		options: [
 			{
 				id: 'q2o1',
 				text: 'Request standard account deletion',
 				outcome: 'Public profile hidden, data may remain archived internally.',
-				leaks: [], // ['archived_profile_data']
+				leaks:  ['archived_profile_data'],
 				conveniencePoints: 40
 			},
 			{
 				id: 'q2o2',
 				text: 'Request full data deletion (GDPR/CCPA)',
 				outcome: 'Higher chance data is truly deleted.',
-				leaks: [], // []
+				leaks: [], 
 				conveniencePoints: 0
 			},
 			{
 				id: 'q2o3',
 				text: 'Deactivate account temporarily instead',
 				outcome: 'Your data remains fully stored and easily reactivated.',
-				leaks: [], // ['full_profile_data']
+				leaks:  ['full_profile_data'],
 				conveniencePoints: 90
 			}
 		],
@@ -89,15 +109,18 @@ export const gameQuestions = [
 		summary: 'Chatbot data for AI', 
 		image: '/images/chatbot_ai.png',
 		articleLinks: [
-			"https://privacycenter.instagram.com/policy"
+			{
+				url: "https://www.cliffordchance.com/insights/resources/blogs/talking-tech/en/articles/2023/04/the-italian-data-protection-authority-halts-chatgpt-s-data-proce.html#:~:text=Prominent%20Garante%20board%20member%20Mr,reasons%3A%20(1)%20OpenAI%20has",
+				title: "The Italian Data Protection Authority halts ChatGPT's data processing operations"
+			}
 		],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		writeup: "The Italian Data Protection Authority's (Garante) intervention with ChatGPT, as detailed in the Clifford Chance article, underscores the heightened privacy risks associated with AI chatbots compared to human support agents. The Garante's concerns stemmed from OpenAI's alleged unlawful and massive-scale collection of personal data, enabled by the ease with which chatbots can ingest and process information, a stark contrast to the typically limited, case-specific data handling of human agents. Moreover, the article highlights the Garante's finding of a lack of transparency regarding data processing and the potential for inaccurate data generation by ChatGPT, issues less prevalent with human agents operating under established privacy guidelines. The absence of clear privacy notices and age verification mechanisms, as cited by the Garante, further distinguishes the risks, revealing a regulatory gap that amplifies privacy concerns beyond those associated with traditional human interactions, particularly given the unprecedented volume of data that chatbots can automatically collect..",
 		options: [
 			{
 				id: 'q3o1',
 				text: 'Continue using the chatbot (implicit consent)',
 				outcome: 'Your interactions become training data.',
-				leaks: [], // ['chat_logs', 'personal_info_shared_in_chat']
+				leaks: ['chat_logs', 'personal_info_shared_in_chat'],
 				conveniencePoints: 90
 			},
 			{
@@ -122,11 +145,28 @@ export const gameQuestions = [
 		summary: 'Accepting app terms blindly', 
 		image: '/images/terms_of_service.png',
 		articleLinks: [
-			"https://www.facebook.com/terms",
-			"https://privacycenter.instagram.com/policy",
-			"https://www.tiktok.com/legal/page/row/privacy-policy/en"
+			{
+				"url": "https://www.facebook.com/terms",
+				"title": "Meta Terms of Service"
+			  },
+			  {
+				"url": "https://privacycenter.instagram.com/policy",
+				"title": "Instagram Privacy Policy"
+			  },
+			  {
+				"url": "https://www.tiktok.com/legal/page/row/privacy-policy/en",
+				"title": "TikTok Privacy Policy"
+			  },
+			  {
+				"url": "https://nypost.com/2024/07/28/us-news/priest-outed-for-using-grindr-sues-dating-app-for-allegedly-selling-data-report/",
+				"title": "Catholic priest outed for using Grindr sues dating app for allegedly selling data: Report"
+			  },
+			  {
+				"url": "https://www.yorku.ca/osgoode/iposgoode/2021/04/05/social-media-privacy-legalities-of-personal-data-collection/",
+				"title": "Social Media Privacy: Legalities of Personal Data Collection"
+			  }
 		],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		writeup: "Social media platforms like Facebook, Instagram, and TikTok often have privacy policies that grant them extensive data collection rights, encompassing everything from location and browsing history to biometric data and purchase information, often shared with third-party advertisers. This data is used for targeted advertising and profile creation, with platforms reserving the right to change policies without notice and retain data indefinitely. Furthermore, users often unknowingly grant broad rights to their content and contribute to AI training, all while facing limited transparency and control over their personal information.\n\nThe case of Monsignor Jeffrey Burrill, as reported by the NYPost, starkly illustrates the dangers of blindly accepting privacy policies. Grindr's alleged sale of his sensitive data, leading to his public outing, underscores the potential for severe consequences when users fail to scrutinize the terms governing their personal information. This incident aligns with the broader concerns discussed in the York University IP Osgoode article, which highlights the legal complexities and challenges surrounding social media privacy and the often-problematic nature of \"implied consent.\" Both sources emphasize the critical need for users to actively understand and question the data collection and sharing practices outlined in privacy policies, rather than passively accepting them, to protect themselves from potentially devastating privacy violations.",
 		options: [
 			{
 				id: 'q4o1',
@@ -159,8 +199,25 @@ export const gameQuestions = [
 		question: 'You visit an online store and encounter a cookie consent popup.',
 		summary: 'Cookie consent choices', 
 		image: '/images/cookie_consent.png',
-		articleLinks: [],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		articleLinks: [
+			{
+			  "title": "What to know about Internet cookies",
+			  "url": "https://www.getcybersafe.gc.ca/en/blogs/what-know-about-internet-cookies"
+			},
+			{
+			  "title": "Web tracking with cookies",
+			  "url": "https://www.priv.gc.ca/en/privacy-topics/technology/online-privacy-tracking-cookies/cookies/02_05_d_49/"
+			},
+			{
+			  "title": "Know Your Cookies",
+			  "url": "https://ithelp.brown.edu/kb/articles/know-your-cookies"
+			},
+			{
+			  "title": "Session Management Cheat Sheet",
+			  "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+			}
+		  ],
+		writeup: "Accepting all cookies significantly increases the risk of your Personal Identification Information (PII) being compromised. As detailed by resources like those from Brown University's IT Help, cookies can store sensitive data such as login credentials, contact details, and even partial financial information. This data, if intercepted, can lead to identity theft and financial fraud. Furthermore, the Office of the Privacy Commissioner of Canada highlights the danger of third-party cookies, which enable companies to link your visits between different websites. This cross-site tracking allows for the creation of comprehensive profiles of your online behavior, revealing intimate details about your interests, habits, and even location. This aggregation of data, when combined with leaked PII, creates a heightened risk of targeted attacks and a severe erosion of your online privacy, as your actions across the web become a detailed, traceable record.",
 		options: [
 			{
 				id: 'q5o1',
@@ -191,12 +248,20 @@ export const gameQuestions = [
 		summary: 'App permission requests', 
 		image: '/images/app_permissions.png',
 		articleLinks: [
-			"https://www.cbc.ca/news/canada/tiktok-data-collection-privacy-1.6763626",
-			"https://www.tiktok.com/legal/page/row/privacy-policy/en",
-			"https://current360.com/instagrams-new-tos-what-do-they-mean/",
-			"https://privacycenter.instagram.com/policy"
-		],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+			{
+			  "title": "Android Owners, Watch Out for These 7 Shady VPN Apps",
+			  "url": "https://www.cnet.com/tech/services-and-software/shady-android-vpn-apps-to-avoid-privacy-google-play/"
+			},
+			{
+			  "title": "What does TikTok know about you? What should you know about it?",
+			  "url": "https://www.cbc.ca/news/canada/tiktok-data-collection-privacy-1.6763626"
+			},
+			{
+			  "title": "TikTok Privacy Policy",
+			  "url": "https://www.tiktok.com/legal/page/row/privacy-policy/en"
+			}
+		  ],
+		writeup: "The practice of indiscriminately granting apps all requested permissions presents a substantial threat to your digital privacy and security. As the CBC News investigation into TikTok demonstrates, applications can aggressively monitor an array of device functions, including 'keystroke patterns or rhythms, battery state, audio settings and connected audio devices,' and even analyze video content to identify 'objects and scenery... face and body features... and the text of the words spoken.' This level of data collection often extends far beyond the app's essential functionality, highlighting a pattern of excessive data gathering. Furthermore, the CNET report on 'shady' Android VPN apps reveals a disturbing trend: these apps, designed to enhance privacy, might instead collect and sell user data, directly undermining the very privacy they claim to offer. In essence, many apps, regardless of their purported purpose, frequently request permissions that enable them to gather sensitive information unrelated to their core functions. Therefore, it is imperative that users exercise caution, thoroughly review permission requests, and only grant access to information that is absolutely essential for an app's proper operation.",
 		options: [
 			{
 				id: 'q6o1',

@@ -51,15 +51,15 @@ function WriteupPage() {
 					  <div className="mb-4">
 						<h3 className="text-lg font-medium text-gray-700 mb-2">Related Articles:</h3>
 						<ul className="list-disc list-inside pl-4 space-y-1">
-						  {question.articleLinks.map((link, linkIndex) => (
-							<li key={linkIndex}>
+						  {question.articleLinks.map((article, articleIndex) => (
+							<li key={articleIndex}>
 							  <a
-								href={link}
+								href={article.url}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
 							  >
-								{link}
+								{article.title}
 							  </a>
 							</li>
 						  ))}

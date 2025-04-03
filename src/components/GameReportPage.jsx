@@ -56,7 +56,7 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                     <ul className="list-disc list-inside text-red-700 space-y-1">
                         {uniqueLeaks.map(leak => (
                             <li key={leak}>
-                                <span className="capitalize">{leak.replace(/_/g, ' ')}</span>
+                                <span>{leak.replace(/_/g, ' ')}</span>
                             </li>
                         ))}
                     </ul>

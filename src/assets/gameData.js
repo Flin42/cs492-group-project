@@ -1,13 +1,5 @@
 // src/gameData.js
 
-export const personalData = {
-	name: { value: 'Alex Doe', leaked: false, how: [] },
-	email: { value: 'alex.doe@example.com', leaked: false, how: [] },
-	location: { value: 'Cityville, Statesota', leaked: false, how: [] },
-	ipAddress: { value: '192.168.1.x', leaked: false, how: [] },
-	// Add more PII types relevant to your scenarios
-};
-
 export const gameQuestions = [
 	{
 		id: 'q1',
@@ -38,7 +30,10 @@ export const gameQuestions = [
 				You’re assaulted with hyper-targeted ads and offers, but it’s clear the app knows more about your habits
 				than you might be comfortable with. That cozy café you visit every Monday morning? ShopMaster already has a discount ready, with more on the way.
 			`,
-				leaks: ['location', 'device_info', 'habits'],
+				leaks: [
+					"Your precise location history is tracked 24/7, revealing your daily routines and frequently visited places.",
+					"Your shopping habits and store visits are collected to build a detailed consumer profile."
+				],
 				satisfactionPoints: 90
 			},
 			{
@@ -48,7 +43,9 @@ export const gameQuestions = [
 				ShopMaster checks in only when you’re actively browsing.
 				You still get relevant offers while searching for deals, but the app isn’t snooping around when you’re off the clock.
 				The suggestions are helpful, and you've made some nice purchases from them. Sometimes the timing is a bit off, however, like getting a discount just as you've arrived home from shopping.`,
-				leaks: ['location'],
+				leaks: [
+					"Your location is logged whenever you open the app, linking your presence to specific times and places."
+				],
 				satisfactionPoints: 70
 			},
 			{
@@ -84,8 +81,13 @@ export const gameQuestions = [
 				id: 'q2o1',
 				text: 'Request standard account deletion',
 				outcome: 'Public profile hidden, data may remain archived internally.',
-				leaks: ['archived_profile_data'],
-				satisfactionPoints: 40
+				leaks: [
+					'Your archived profile data is retained, allowing the company to restore your account or sell your information.',
+					'Your photos remain stored, potentially accessible by employees or unauthorized third parties.',
+					'Your posts are retained, allowing them to be used for algorithm training or marketing.',
+					'Your friend connections are still recorded, which can be exploited for social profiling.'
+				],
+				satisfactionPoints: 90
 			},
 			{
 				id: 'q2o2',
@@ -98,8 +100,11 @@ export const gameQuestions = [
 				id: 'q2o3',
 				text: 'Deactivate account temporarily instead',
 				outcome: 'Your data remains fully stored and easily reactivated.',
-				leaks: ['full_profile_data'],
-				satisfactionPoints: 90
+				leaks: [
+					'Your messages are retained, potentially allowing surveillance or data analysis.',
+					'Your social interactions are still recorded and can be exploited for behavioral profiling.'
+				],
+				satisfactionPoints: 40
 			}
 		],
 	},
@@ -120,7 +125,10 @@ export const gameQuestions = [
 				id: 'q3o1',
 				text: 'Continue using the chatbot (implicit consent)',
 				outcome: 'Your interactions become training data.',
-				leaks: ['chat_logs', 'personal_info_shared_in_chat'],
+				leaks: [
+					'Conversations revealing personal details are stored and analyzed to improve AI systems, potentially exposing sensitive information.',
+					'Personal information shared during chats is stored indefinitely, creating a permanent record of your interactions.'
+				],
 				satisfactionPoints: 90
 			},
 			{
@@ -170,29 +178,35 @@ export const gameQuestions = [
 				"title": "What you need to know before clicking 'I agree' on that terms of service agreement or privacy policy"
 			}
 		],
-		writeup: "Social media platforms like Facebook, Instagram, and TikTok often have privacy policies that grant them extensive data collection rights, encompassing everything from location and browsing history to biometric data and purchase information, often shared with third-party advertisers. This data is used for targeted advertising and profile creation, with platforms reserving the right to change policies without notice and retain data indefinitely. Furthermore, users often unknowingly grant broad rights to their content and contribute to AI training, all while facing limited transparency and control over their personal information.\n\nThe case of Monsignor Jeffrey Burrill, as reported by the NYPost, starkly illustrates the dangers of blindly accepting privacy policies. Grindr's alleged sale of his sensitive data, leading to his public outing, underscores the potential for severe consequences when users fail to scrutinize the terms governing their personal information. This incident aligns with the broader concerns discussed in the York University IP Osgoode article, which highlights the legal complexities and challenges surrounding social media privacy and the often-problematic nature of \"implied consent.\" Both sources emphasize the critical need for users to actively understand and question the data collection and sharing practices outlined in privacy policies, rather than passively accepting them, to protect themselves from potentially devastating privacy violations.",
+		writeup: "Social media platforms like Facebook, Instagram, and TikTok often have privacy policies that grant them extensive data collection rights, encompassing everything from location and browser history to biometric data and purchase information, often shared with third-party advertisers. This data is used for targeted advertising and profile creation, with platforms reserving the right to change policies without notice and retain data indefinitely. Furthermore, users often unknowingly grant broad rights to their content and contribute to AI training, all while facing limited transparency and control over their personal information.\n\nThe case of Monsignor Jeffrey Burrill, as reported by the NYPost, starkly illustrates the dangers of blindly accepting privacy policies. Grindr's alleged sale of his sensitive data, leading to his public outing, underscores the potential for severe consequences when users fail to scrutinize the terms governing their personal information. This incident aligns with the broader concerns discussed in the York University IP Osgoode article, which highlights the legal complexities and challenges surrounding social media privacy and the often-problematic nature of \"implied consent.\" Both sources emphasize the critical need for users to actively understand and question the data collection and sharing practices outlined in privacy policies, rather than passively accepting them, to protect themselves from potentially devastating privacy violations.",
 		options: [
 			{
 				id: 'q4o1',
 				text: 'Accept terms without reading carefully',
 				outcome: `
-			You breeze through the signup process, barely reading the first word from the wall of text, and gain instant access. But with vague terms, you’ve effectively handed over the keys to your personal data. Your profile information, browsing habits, and even device details are now up for grabs.
-			Weeks later, you start receiving ads eerily tailored to your conversations. That one time you mentioned alpaca farming as a joke? You're now getting targeted emails from luxury wool suppliers and guided llama trekking tours. But that's the price you pay for "satisfaction"`,
-				leaks: ['email', 'profile_data', 'device_info'],
+				You breeze through the signup process, barely reading the first word from the wall of text, and gain instant access. But with vague terms, you’ve effectively handed over the keys to your personal data. Your profile information, browser habits, and even device details are now up for grabs.
+				Weeks later, you start receiving ads eerily tailored to your conversations. That one time you mentioned alpaca farming as a joke? You're now getting targeted emails from luxury wool suppliers and guided llama trekking tours. But that's the price you pay for "satisfaction"`,
+				leaks: [
+					"Your email address is collected and potentially shared with marketing partners.",
+					"Your profile information, including name, age, and interests, is used for targeted advertising.",
+					"Details about your device (type, OS, IP address) are logged and linked to your account."
+				],
 				satisfactionPoints: 95
 			},
 			{
 				id: 'q4o2',
 				text: 'Use privacy-check tool to highlight problematic sections',
 				outcome: `You take a few minutes to scan the terms using a privacy-check tool. It flags some concerning clauses—data sharing, targeted advertising, even location tracking. Concerned, you share your findings with your friends. Spooked by the details, they decide to ditch the app altogether and switch to something else. You’ve managed to dodge a privacy disaster, but the whole group chat is now looking for a new platform.`,
-				leaks: ['limited_profile_data'],
+				leaks: [
+					"Basic profile information entered during signup might be temporarily stored before you decide against using the app."
+				],
 				satisfactionPoints: 50
 			},
 			{
 				id: 'q4o3',
 				text: 'Decline to join until fully understanding risks',
 				outcome: `You decide to dig deeper before committing, determined to understand every clause. Days turn into weeks as you wade through endless legal jargon and cross-reference privacy policies. By the time you finally grasp what you're signing up for (it was nothing good) the social network is yesterday’s news.
-			Your friends have already moved on to the next big thing, leaving you with your privacy preserved but also with a headache and a newfound distrust of fine print.`,
+				Your friends have already moved on to the next big thing, leaving you with your privacy preserved but also with a headache and a newfound distrust of fine print.`,
 				leaks: [],
 				satisfactionPoints: 0
 			}
@@ -227,21 +241,29 @@ export const gameQuestions = [
 				id: 'q5o1',
 				text: 'Accept all cookies',
 				outcome: 'Enables extensive tracking and personalized ads.',
-				leaks: [], // ['browsing_history', 'preferences', 'device_info']
+				leaks: [
+					"Your browser history across multiple websites is tracked to build a detailed interest profile.",
+					"Your site preferences and interaction data are stored to personalize your experience and target ads.",
+					"Information about your device and IP address is collected by third-party trackers."
+				],
 				satisfactionPoints: 90
 			},
 			{
 				id: 'q5o2',
 				text: 'Accept only necessary cookies',
 				outcome: 'Minimal tracking, basic website functionality maintained.',
-				leaks: [], // ['basic_usage_data']
+				leaks: [
+					"Essential session data, like login status, is stored temporarily but doesn't track you across sites."
+				],
 				satisfactionPoints: 60
 			},
 			{
 				id: 'q5o3',
 				text: 'Manage preferences manually',
 				outcome: 'Limits data exposure by explicitly controlling cookies.',
-				leaks: [], // ['controlled_preferences']
+				leaks: [
+					"Specific data points you allowed (like site settings) are stored, but tracking cookies are blocked."
+				],
 				satisfactionPoints: 30
 			}
 		],
@@ -271,14 +293,21 @@ export const gameQuestions = [
 				id: 'q6o1',
 				text: 'Accept all permissions',
 				outcome: 'Leads to extensive data collection.',
-				leaks: [], // ['contacts', 'photos', 'audio_data', 'device_info']
+				leaks: [
+					"Your entire contact list is uploaded and potentially used to find connections or sold to data brokers.",
+					"The app gains access to all photos and videos in your gallery, potentially scanning them for metadata or content.",
+					"The app can access your microphone, potentially listening in the background or recording audio.",
+					"Detailed device information, including unique identifiers, is collected and linked to your profile."
+				],
 				satisfactionPoints: 90
 			},
 			{
 				id: 'q6o2',
 				text: 'Only grant necessary permissions',
 				outcome: 'Limited functionality but reduced privacy risk.',
-				leaks: [], // ['photos']
+				leaks: [
+					"Only the photos you explicitly choose to upload are accessed by the app."
+				], // Assuming only gallery/camera needed for posting
 				satisfactionPoints: 60
 			},
 			{
@@ -297,12 +326,12 @@ export const gameQuestions = [
 		image: '/images/sports_app.png',
 		articleLinks: [
 			{
-			"url": "https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d",
-			"title": "NFL Teams Gathered Detailed Consumer Data Without Standard Notice or Opt-Outs - WSJ"
+				"url": "https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d",
+				"title": "NFL Teams Gathered Detailed Consumer Data Without Standard Notice or Opt-Outs - WSJ"
 			},
 			{
-			"url": "https://bbbprograms.org/media/newsroom/decisions/daap-nfl",
-			"title": "Digital Advertising Accountability Program Decision Regarding NFL - BBB Programs"
+				"url": "https://bbbprograms.org/media/newsroom/decisions/daap-nfl",
+				"title": "Digital Advertising Accountability Program Decision Regarding NFL - BBB Programs"
 			}
 		],
 		writeup: `
@@ -314,10 +343,15 @@ export const gameQuestions = [
 			{
 				id: 'q7o1',
 				text: 'Agree and use the app without further investigation',
-				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your Browse habits, even your chat messages and posts.
-			A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.”
-			Now, CoachGPT is spitting out trash talk eerily similar to yours and even predicting your team’s losses with brutal accuracy. All for the sake of ‘better fan engagement.’`,
-				leaks: ['location', 'consumer_interests', 'usage_patterns'],
+				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your browsing habits, even your chat messages and posts.
+				A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.”
+				Now, CoachGPT is spitting out trash talk eerily similar to yours and even predicting your team’s losses with brutal accuracy. All for the sake of ‘better fan engagement.’`,
+				leaks: [
+					"Your precise geolocation is tracked, revealing your movements and potentially your home/work locations.",
+					"Your browsing habits within the app and potentially across other sites are monitored to determine your consumer interests.",
+					"How you interact with the app (clicks, time spent, features used) is logged and analyzed.",
+					"Content from your in-app messages or posts might be analyzed for sentiment and training AI."
+				],
 				satisfactionPoints: 90
 			},
 			{
@@ -337,20 +371,26 @@ export const gameQuestions = [
 		articleLinks: [
 			"https://www.usatoday.com/story/tech/2020/01/28/not-reading-the-small-print-is-privacy-policy-fail/4565274002/"
 		],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		writeup: "Clicking 'I agree' without reading is common, but risky. Terms of Service and Privacy Policies often contain clauses allowing companies broad rights to collect, use, and share your personal data, including profile information, contacts, location, browsing habits, and user-generated content. This data can be used for targeted advertising, sold to data brokers, or used for purposes you didn't anticipate. Failing to read these documents means you might unknowingly consent to practices that compromise your privacy, potentially leading to unwanted tracking, data breaches, or misuse of your information.",
 		options: [
 			{
 				id: 'q8o1',
 				text: 'Accept terms quickly without reading',
 				outcome: 'You unknowingly agree to broad data sharing.',
-				leaks: [], // ['profile_data', 'contacts', 'shared_content']
+				leaks: [
+					"Your profile information (name, age, etc.) is shared with unspecified third parties.",
+					"The app accesses and stores your contact list under the guise of finding friends.",
+					"Content you share (posts, photos) can be used by the network for various purposes, including advertising."
+				],
 				satisfactionPoints: 90
 			},
 			{
 				id: 'q8o2',
 				text: 'Use a browser extension to briefly highlight red flags',
 				outcome: 'Improved privacy through proactive checking.',
-				leaks: [], // ['minimal_profile_data']
+				leaks: [
+					"Basic signup information might be captured before you fully assess the terms and potentially abandon the app."
+				],
 				satisfactionPoints: 50
 			},
 			{
@@ -387,8 +427,12 @@ export const gameQuestions = [
 			},
 			{
 				"url": "https://www.forbes.com/sites/tomiogeron/2012/12/20/after-backlash-instagram-changes-back-to-original-terms-of-service/",
-				"title": "https://www.forbes.com/sites/tomiogeron/2012/12/20/after-backlash-instagram-changes-back-to-original-terms-of-service/"
-			}
+				"title": "After Backlash, Instagram Changes Back To Original Terms Of Service" // Corrected title
+			},
+			{
+				"url": "https://privacycenter.instagram.com/policy",
+				"title": "Instagram Privacy Policy"
+			},
 		],
 		"writeup": `
 			Back in December 2012, Instagram proposed changes to its Terms of Service (TOS) that would allow the platform to display users' photos, usernames, and other data for paid or sponsored content without any compensation to the users. 
@@ -405,7 +449,11 @@ export const gameQuestions = [
 					Weeks later, you find one of your carefully curated beach photos on a billboard promoting a snake oil based sunscreen (which you don’t endorse).
 					To make things stranger, the latest image generation models from UnstableDiffusion create images that look a lot like your photos when you prompt it to create an image of "a fun filled vacation".
 				`,
-				leaks: [], // ['photos', 'usernames']
+				leaks: [
+					"Your photos are licensed to the platform for use in advertising without your direct consent or compensation.",
+					"Your username is associated with your photos when used in promotions.",
+					"Your photos are used as training data for image generation AI models."
+				],
 				satisfactionPoints: 90
 			},
 			{
@@ -415,7 +463,9 @@ export const gameQuestions = [
 					While this restricts external access to your content, PicWorld’s terms still allow the platform to use your images for promotional purposes. 
 					Your images are reviewed in analytics and experiments by PicWorld employees, but at least strangers can't misuse them.
 				`,
-				leaks: [], // ['limited_photos']
+				leaks: [
+					"Your private photos are still accessible to platform employees for internal analytics and potential AI training."
+				],
 				satisfactionPoints: 50
 			},
 			{
@@ -454,29 +504,36 @@ export const gameQuestions = [
 				"id": "q10o1",
 				"text": "Buy the modern car and accept the privacy policy",
 				"outcome": "You quickly agree to the terms and enjoy the full suite of connectivity features. You're enjoying the seamless integration of your smartphone, real-time navigation, and voice-activated controls. Weeks go by, and you continue to appreciate the modern conveniences, from automatically updated maps to music playlists tailored to your tastes. However, you start to notice peculiar ads popping up on your devices. Promotions for health-related products based on conversations you had in the car, or ads for specific destinations you drove past just once. Even more unsettling, personalized insurance quotes arrive in your inbox, referencing your driving habits and frequency of late-night trips.",
-				leaks: [],
-				satisfactionPoints: 90
+				"leaks": [
+					"Your precise driving routes, speed, and braking patterns are collected and potentially sold to insurance companies or data brokers.",
+					"Audio recordings of your in-car conversations are analyzed for keywords to target advertising or infer personal details.",
+					"Your vehicle's location history is logged, revealing frequently visited places and travel routines.",
+					"Sensitive personal information inferred from driving habits or conversations (e.g., health status, personal relationships) may be collected."
+				],
+				"satisfactionPoints": 90
 			},
 			{
 				"id": "q10o2",
 				"text": "Buy the modern car, but refuse to accept the privacy policy",
 				"outcome": "You decide not to accept the privacy policy. As a result, many of the car’s connected features, such as in-car Wi-Fi, voice recognition, and over-the-air updates, are disabled. Your experience with the vehicle is severely limited, and certain functionalities may not work at all. But at the end of the day, the car gets you to point A and point B which is exactly what you need.",
-				leaks: [],
-				satisfactionPoints: 60
+				"leaks": [
+					"Basic vehicle diagnostic data and essential operational information might still be transmitted to the manufacturer for safety or maintenance purposes."
+				],
+				"satisfactionPoints": 60
 			},
 			{
 				"id": "q10o3",
 				"text": "Buy the older, simpler car",
 				"outcome": "You settle on a classic vehicle, free of modern connectivity and any privacy concerns that could come with it. It’s a bit of a fixer-upper, but you like the idea of something simple and reliable. The radio is outdated, and there’s no way to connect your smartphone aside from an aux cord you dug out of a drawer. When friends talk about their car's latest features, you feel a slight pang of envy. You stick by your decision, finding comfort in the old-school charm and privacy your car provides. It ain't much, but it's honest work.",
-				leaks: [],
-				satisfactionPoints: 0
+				"leaks": [],
+				"satisfactionPoints": 0
 			}
 		]
 	},
 	{
 		id: 'q11',
 		question: `
-			You stumble upon a flashy new app called BrowseBoost that promises to supercharge your internet experience—ad-free browsing, personalized news feeds, and slick customization options. 
+			You stumble upon a flashy new app called BrowseBoost that promises to supercharge your internet experience with ad-free browsinng, personalized news feeds, and slick customization options. 
 			It’s buzzing with five-star reviews and influencers hyping it up everywhere.
 			All you need to do is log in using third-party authentication through your Boogle account. It’s quick, easy, and lets you bypass the hassle of creating a whole new profile.
 		`,
@@ -501,7 +558,10 @@ export const gameQuestions = [
 				You dive right into BrowseBoost, logging in with your Boogle account without a second thought. The setup is smooth, and the app’s features work perfectly. Unbeknownst to you, there was a bug that granted BrowseBoost unintended access to your friends’ private data. 
 				Fortunately, Boogle’s engineers catch and patch the issue before it’s ever exploited.
 				`,
-				leaks: [], // ['friends_data', 'profile_data']
+				leaks: [
+					"Due to an API bug (now fixed), the app potentially gained unintended access to your friends' private profile information.",
+					"Your own profile data shared during authentication was potentially accessible beyond the intended scope due to the bug (now fixed)."
+				],
 				satisfactionPoints: 90
 			},
 			{
@@ -510,14 +570,17 @@ export const gameQuestions = [
 				outcome: `
 					You take a cautious approach, double-checking permissions and restricting BrowseBoost’s access as much as possible. Unbeknownst to you, there was a bug that could have granted BrowseBoost unintended access to your friends’ private data. Fortunately, Boogle’s engineers discover and fix the vulnerability before it’s ever exploited. Your precautions were solid, but unnecessary this time around.
 				`,
-				leaks: [], // ['limited_profile_data']
+				leaks: [
+					"Despite checking permissions, an underlying API bug (now fixed) meant the app potentially gained unintended access to your friends' private profile data.",
+					 "Even with restricted permissions, the app potentially accessed more of your profile data than intended due to the bug (now fixed)."
+				],
 				satisfactionPoints: 50
 			},
 			{
 				id: 'q11o3',
 				text: 'Avoid using third-party apps altogether',
-				outcome: `You refuse to authenticate BrowseBoost with your Boogle account. No login. No data shared. Unknown to you, Boogle’s engineers found a bug that was a potential data risk, but  patched it before anyone even had a chance to exploit it.
-					So, while everyone else is happily browsing away, you're missing out.`,
+				outcome: `You refuse to authenticate BrowseBoost with your Boogle account. No login. No data shared. Unknown to you, Boogle’s engineers found a bug that was a potential data risk, but  patched it before anyone even had a chance to exploit it.
+					So, while everyone else is happily Browse away, you're missing out.`,
 				leaks: [],
 				satisfactionPoints: 0
 			}
@@ -532,9 +595,12 @@ export const gameQuestions = [
 		summary: 'Smart assistant audio analysis',
 		image: '/images/smart_assistant.png',
 		articleLinks: [
-			"https://www.bbc.com/news/articles/cr4rvr495rgo"
+			{
+				"url":"https://www.bbc.com/news/articles/cr4rvr495rgo",
+				"title":"Apple to pay $95m to settle Siri 'listening' lawsuit"
+			}
 		],
-		writeup: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		writeup: "Smart home assistants rely on analyzing audio to function effectively, but this convenience comes with privacy trade-offs. Allowing constant audio analysis means the device is always listening, potentially capturing sensitive background conversations unrelated to commands. These recordings are often sent to company servers for processing and may be reviewed by human analysts to improve voice recognition accuracy, as highlighted by cases involving Amazon Alexa where users discovered recordings of private moments, including those involving children. While manufacturers state these reviews are for quality improvement, it raises concerns about who might be listening to personal conversations and how this data is secured and used.",
 		options: [
 			{
 				id: 'q12o1',
@@ -543,7 +609,11 @@ export const gameQuestions = [
 				You give HomeHelper full permission to analyze all your audio for that “better experience” it keeps promising. Your commands work flawlessly, the thermostat adjusts before you even ask, and it even recommends TV shows you didn’t know you’d love
 				Everything is so seamless, you almost forget it’s always listening. Except, of course, it is. HomeHelper’s constant analysis means that someone’s probably hearing more of your life than you intended.
 				`,
-				leaks: [], // ['audio_recordings', 'private_conversations']
+				leaks: [
+					"Recordings of your background conversations and ambient household sounds are stored and potentially reviewed by human analysts.",
+					"Private details spoken near the device, even when not directly addressed, can be captured and analyzed.",
+					"Voice patterns and commands are used to build a detailed profile of your habits and interests."
+				],
 				satisfactionPoints: 90
 			},
 			{
@@ -552,7 +622,10 @@ export const gameQuestions = [
 				outcome: `
 					You cautiously restrict HomeHelper to only listen for direct commands. You sometimes find yourself shouting or repeating commands to get its attention, but most of the time, it works.
 				`,
-				leaks: [], // ['command_audio']
+				leaks: [
+					"Audio snippets containing your voice commands are recorded and stored for processing and potential analysis.",
+					"Accidental activations might still capture brief moments of unintended audio."
+				],
 				satisfactionPoints: 50
 			},
 			{

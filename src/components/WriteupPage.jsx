@@ -9,7 +9,10 @@ function WriteupPage() {
 		<h1 className="text-4xl font-bold text-center text-gray-900 mb-10 border-b pb-4">
 		  Game Questions Breakdown
 		</h1>
-  
+		<p className="mb-10">
+		This section covers the different game questions we presented to users in the game, along with the real world scenarios that inspired them. You can explore the research and articles behind each question,
+		or simply view the outcomes of other options.
+		</p>
 		{gameQuestions.map((question, index) => (
 		  <Disclosure
 			key={question.id}

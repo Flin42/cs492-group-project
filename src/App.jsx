@@ -9,12 +9,10 @@ function HomePage() {
     <div className="flex justify-center"> {/* Added flex and justify-center */}
       <div className="text-center p-8 max-w-5xl"> {/* Added max-w-3xl */}
         <h1 className="text-4xl font-bold text-gray-800 mb-6">
-          Welcome to the Privacy Adventure!
+          Welcome to our CS492 Small Group Project!
         </h1>
         <p className="mb-8 text-gray-600">
-          Welcome to Privacy Adventure! This game simulates everyday online scenarios where you'll make decisions that impact your privacy.
-          Each choice offers different levels of satisfaction, but may also compromise your privacy to varying degrees. Your goal is to understand the trade-offs between ease-of-use and protecting your personal information.
-          As you play, you'll accumulate 'satisfaction points' based on your choices. Be mindful of the permissions you grant and the terms you accept. Some options may seem harmless, but could lead to unexpected data leaks!
+          Talk about the site, game, and the different tabs
         </p>
 
         <div className="space-y-4">
@@ -67,6 +65,12 @@ function App() {
 								>
 									Writeup
 								</Link>
+								<Link
+									to="/summary"
+									className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition duration-150 ease-in-out" // Styling for links
+								>
+									Findings and Summary
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -79,6 +83,7 @@ function App() {
 						<Route path="/" element={<HomePage />} />
 						<Route path="/game" element={<GamePage />} />
 						<Route path="/writeup" element={<WriteupPage />} />
+						<Route path="/summary" element={<WriteupPage />} />
 					</Routes>
 				</main>
 

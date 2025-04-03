@@ -26,7 +26,7 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
             className="max-w-3xl mx-auto my-8 p-6 md:p-8 border border-gray-300 rounded-lg bg-white shadow-lg text-gray-800"
         >
             <h2 className="text-3xl font-bold mb-4 text-center text-gray-800">
-                Your Privacy Journey Report
+                Your Results:
             </h2>
             <p className="text-center mb-6 text-lg text-gray-600">
                 You've completed the adventure! Here's a summary of your choices and their impact.
@@ -59,9 +59,17 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                                 <p className="text-sm text-gray-600 italic mb-2">
                                     "{question?.question}"
                                 </p>
-                                <p className="text-gray-800 flex justify-between">
-                                    <span><span className="font-medium">Your choice:</span> {answer.selectedOptionText}</span>
-                                    {selectedOption && <span className="text-green-400">+{selectedOption.satisfactionPoints}</span>}
+                                <p className="my-1 text-gray-800 flex justify-between">
+                                    <span className="font-bold">Your choice:</span>
+                                </p>
+                                <p>
+                                    {answer.selectedOptionText}
+                                </p>
+                                <p className="my-1 text-gray-800 flex justify-between">
+                                    <span className="font-bold">The Outcome:</span>
+                                </p>
+                                <p>
+                                    {selectedOption.outcome}
                                 </p>
                                 {answer.leaks && answer.leaks.length > 0 && (
                                     <p className="text-sm text-red-600 mt-1">

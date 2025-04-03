@@ -89,8 +89,8 @@ function WriteupPage() {
 							  </span>
 							</div>
 							<div className="text-sm mt-1">
-							  <span className="font-medium text-indigo-600">Convenience Points:</span>
-							  <span className="ml-2 text-indigo-700">{option.conveniencePoints}</span>
+							  <span className="font-medium text-indigo-600">Satisfaction Points:</span>
+							  <span className="ml-2 text-indigo-700">{option.satisfactionPoints}</span>
 							</div>
 						  </div>
 						))}

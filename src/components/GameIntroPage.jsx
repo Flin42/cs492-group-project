@@ -6,7 +6,7 @@ function GameIntroPage({ onStart }) {
     <div className="flex flex-col items-center justify-center h-screen p-8 bg-gray-50">
       <h1 className="text-3xl font-bold mb-6 text-gray-800">Welcome to The Privacy Challenge</h1>
       <p className="text-lg mb-4 text-gray-700 max-w-3xl">
-        In this interactive experience, your goal is simple: <strong> try and navigate the web while keeping your personal data safe.</strong>        
+        In this interactive experience, your goal is simple: <strong> try and navigate the web, maximizing your satisfaction while keeping your personal data safe.</strong>        
       </p>
 	  <p className="text-lg mb-4 text-gray-700 max-w-3xl">
 	  	In the game, you will be presented with everyday scenarios and a list of options. 

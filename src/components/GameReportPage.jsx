@@ -15,7 +15,7 @@ const getUniqueLeaks = (userAnswers) => {
     return [...new Set(allLeaks)];
 };
 
-function GameReportPage({ gameQuestions, userAnswers, totalConveniencePoints, onRestart }) {
+function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, onRestart }) {
     const uniqueLeaks = getUniqueLeaks(userAnswers);
 
     return (
@@ -35,10 +35,10 @@ function GameReportPage({ gameQuestions, userAnswers, totalConveniencePoints, on
             {/* Final Score */}
             <div className="text-center mb-8 p-4 bg-blue-50 border border-blue-200 rounded-md">
                 <p className="text-xl font-semibold text-blue-800">
-                    Total Convenience Points: <strong>{totalConveniencePoints}</strong>
+                    Total Satisfaction Points: <strong>{totalSatisfactionPoints}</strong>
                 </p>
                 <p className="text-sm text-blue-700 mt-1">
-                    Higher points often mean more data shared for convenience.
+                    Higher points often mean more data shared for satisfaction.
                 </p>
             </div>
 
@@ -61,7 +61,7 @@ function GameReportPage({ gameQuestions, userAnswers, totalConveniencePoints, on
                                 </p>
                                 <p className="text-gray-800 flex justify-between">
                                     <span><span className="font-medium">Your choice:</span> {answer.selectedOptionText}</span>
-                                    {selectedOption && <span className="text-green-400">+{selectedOption.conveniencePoints}</span>}
+                                    {selectedOption && <span className="text-green-400">+{selectedOption.satisfactionPoints}</span>}
                                 </p>
                                 {answer.leaks && answer.leaks.length > 0 && (
                                     <p className="text-sm text-red-600 mt-1">

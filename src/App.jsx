@@ -13,8 +13,8 @@ function HomePage() {
         </h1>
         <p className="mb-8 text-gray-600">
           Welcome to Privacy Adventure! This game simulates everyday online scenarios where you'll make decisions that impact your privacy.
-          Each choice offers different levels of convenience, but may also compromise your privacy to varying degrees. Your goal is to understand the trade-offs between ease-of-use and protecting your personal information.
-          As you play, you'll accumulate 'convenience points' based on your choices. Be mindful of the permissions you grant and the terms you accept. Some options may seem harmless, but could lead to unexpected data leaks!
+          Each choice offers different levels of satisfaction, but may also compromise your privacy to varying degrees. Your goal is to understand the trade-offs between ease-of-use and protecting your personal information.
+          As you play, you'll accumulate 'satisfaction points' based on your choices. Be mindful of the permissions you grant and the terms you accept. Some options may seem harmless, but could lead to unexpected data leaks!
         </p>
 
         <div className="space-y-4">

@@ -7,7 +7,7 @@ import GameIntroPage from './GameIntroPage';
 
 
 
-function getConvenienceColor(points) {
+function getSatisfactionColor(points) {
     const maxPoints = 400;
 	const numSteps = 5;
 	const stepSize = maxPoints / numSteps;
@@ -32,7 +32,7 @@ function GamePage() {
 	const [selectedOption, setSelectedOption] = useState(null);
 	const [showOutcome, setShowOutcome] = useState(false);
 	const [gameOver, setGameOver] = useState(false);
-	const [conveniencePoints, setConveniencePoints] = useState(0);
+	const [satisfactionPoints, setSatisfactionPoints] = useState(0);
 	const [userAnswers, setUserAnswers] = useState([]);
 	const [showIntroduction, setShowIntroduction] = useState(true);
 
@@ -48,7 +48,7 @@ function GamePage() {
 		setSelectedOption(option);
 		setShowOutcome(true);
 
-		setConveniencePoints(prevPoints => prevPoints + option.conveniencePoints);
+		setSatisfactionPoints(prevPoints => prevPoints + option.satisfactionPoints);
 
 		setUserAnswers(prevAnswers => [
 			...prevAnswers,
@@ -77,7 +77,7 @@ function GamePage() {
 		setSelectedOption(null);
 		setShowOutcome(false);
 		setGameOver(false);
-		setConveniencePoints(0);
+		setSatisfactionPoints(0);
 		setUserAnswers([]);
 		setShowIntroduction(true);
 	};
@@ -95,11 +95,11 @@ function GamePage() {
 
 		const totalPoints = allAnswers.reduce((sum, answer) => {
 			const option = gameQuestions[answer.questionIndex].options.find(opt => opt.id === answer.selectedOptionId);
-			return sum + (option?.conveniencePoints || 0);
+			return sum + (option?.satisfactionPoints || 0);
 		}, 0);
 
 		setUserAnswers(allAnswers);
-		setConveniencePoints(totalPoints);
+		setSatisfactionPoints(totalPoints);
 		setGameOver(true); // Directly navigate to the report page
 	};
 
@@ -113,7 +113,7 @@ function GamePage() {
 			<GameReportPage
 				gameQuestions={gameQuestions}
 				userAnswers={userAnswers}
-				totalConveniencePoints={conveniencePoints}
+				totalSatisfactionPoints={satisfactionPoints}
 				onRestart={handleRestart}
 			/>
 		);
@@ -133,8 +133,8 @@ function GamePage() {
 						Question {currentQuestionIndex + 1} / {gameQuestions.length}
 					</h2>
 					<p className="mb-4 text-gray-700 text-l font-bold">
-						Total Convenience Points: <strong style={{ color: getConvenienceColor(conveniencePoints) }}>
-							{conveniencePoints}
+						Total Satisfaction Points: <strong style={{ color: getSatisfactionColor(satisfactionPoints) }}>
+							{satisfactionPoints}
 						</strong>
 					</p>
 
@@ -157,7 +157,7 @@ function GamePage() {
 									className="w-full px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-150 disabled:border-gray-300 disabled:text-gray-400 disabled:cursor-not-allowed relative" // Added relative positioning
 								>
 								<span className="block text-center">{option.text}</span>
-								<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.conveniencePoints}</span>
+								<span className="text-green-400 absolute top-1/2 transform -translate-y-1/2 right-2"> +{option.satisfactionPoints}</span>
 								</button>
 							))}
 						</div>

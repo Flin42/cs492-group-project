@@ -354,8 +354,13 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q9',
-		question: 'The photo-sharing app PicWorld updates terms allowing the platform to use your photos commercially without explicit consent.',
-		summary: 'App using photos commercially', 
+		question: `
+			You've just returned from a fun filled vacation and can’t wait to share your best pictures on PicWorld, the go-to platform for travel photos.
+			As you open the app, a notification pops up: “We've updated our terms of service.” You tap in to check it out and are met with a massive wall of text that takes multiple seconds
+			to simply scroll to the bottom. There's no way you'll be able to read it all, and 95% of it likely isn't relevant to you. You head to post, but then stop and wonder if
+			you should take some precautions.
+		`,
+		summary: 'App sells user posts to advertisers', 
 		image: '/images/photo_sharing.png',
 		articleLinks: [
 			"https://current360.com/instagrams-new-tos-what-do-they-mean/",
@@ -365,22 +370,30 @@ export const gameQuestions = [
 		options: [
 			{
 				id: 'q9o1',
-				text: 'Continue using normally without reviewing',
-				outcome: 'Risk of your photos being used commercially.',
+				text: 'Share your latest pictures publicly',
+				outcome: `
+					Unknown to you, your photos are legally usable by PicWorld for advertising, promotions, or even resale.
+					Weeks later, you find one of your carefully curated beach photos on a billboard promoting a snake oil based sunscreen (which you don’t endorse).
+				`,
 				leaks: [], // ['photos', 'usernames']
 				conveniencePoints: 90
 			},
 			{
 				id: 'q9o2',
-				text: 'Limit content visibility (private mode)',
-				outcome: 'Protects content more effectively.',
+				text: `Switch your account to private, sharing posts only with your friends`,
+				outcome: `
+					While this restricts external access to your content, PicWorld’s terms still allow the platform to use your images for promotional purposes. 
+					Your images are reviewed in analytics and experiments by PicWorld employees, but at least strangers can't misuse them.
+				`,
 				leaks: [], // ['limited_photos']
 				conveniencePoints: 50
 			},
 			{
 				id: 'q9o3',
-				text: 'Delete sensitive photos immediately',
-				outcome: 'Reduces risk of unauthorized use.',
+				text: `Don't post at all`,
+				outcome: `
+					You decide to play it safe and skip posting altogether. Afterall, nobody knows what PicWorlds intentions are. Unfortunately, nobody knows about your awesome photos now either.
+				`,
 				leaks: [], // []
 				conveniencePoints: 0
 			}
@@ -422,7 +435,11 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q11',
-		question: 'You authorize a third-party app to connect to your SocialSphere profile. A bug allows the app to access your friends’ private data.',
+		question: `
+			You stumble upon a flashy new app called BrowseBoost that promises to supercharge your internet experience—ad-free browsing, personalized news feeds, and slick customization options. 
+			It’s buzzing with five-star reviews and influencers hyping it up everywhere.
+			All you need to do is log in using third-party authentication through your Boogle account. It’s quick, easy, and lets you bypass the hassle of creating a whole new profile.
+		`,
 		summary: 'Third-party app access bug', 
 		image: '/images/social_bug.png',
 		articleLinks: [
@@ -433,21 +450,27 @@ export const gameQuestions = [
 			{
 				id: 'q11o1',
 				text: 'Authorize access immediately without deeper review',
-				outcome: 'Unintentional exposure of your friends’ private information.',
+				outcome: `
+				You dive right into BrowseBoost, logging in with your Boogle account without a second thought. The setup is smooth, and the app’s features work perfectly. Unbeknownst to you, there was a bug that granted BrowseBoost unintended access to your friends’ private data. 
+				Fortunately, Boogle’s engineers catch and patch the issue before it’s ever exploited.
+				`,
 				leaks: [], // ['friends_data', 'profile_data']
 				conveniencePoints: 90
 			},
 			{
 				id: 'q11o2',
 				text: 'Check privacy settings carefully before granting access',
-				outcome: 'Limits potential data exposure.',
+				outcome: `
+					You take a cautious approach, double-checking permissions and restricting BrowseBoost’s access as much as possible. Unbeknownst to you, there was a bug that could have granted BrowseBoost unintended access to your friends’ private data. Fortunately, Boogle’s engineers discover and fix the vulnerability before it’s ever exploited. Your precautions were solid, but unnecessary this time around.
+				`,
 				leaks: [], // ['limited_profile_data']
 				conveniencePoints: 50
 			},
 			{
 				id: 'q11o3',
 				text: 'Avoid using third-party apps altogether',
-				outcome: 'Best protection against data leaks.',
+				outcome: `You refuse to authenticate BrowseBoost with your Boogle account. No login. No data shared. Unknown to you, Boogle’s engineers found a bug that was a potential data risk, but  patched it before anyone even had a chance to exploit it.
+					So, while everyone else is happily browsing away, you're missing out.`,
 				leaks: [], // []
 				conveniencePoints: 0
 			}
@@ -455,7 +478,10 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q12',
-		question: 'You set up your new smart assistant, HomeHelper, which asks permission to "analyze audio for a better experience."',
+		question: `
+			You just unboxed your shiny new smart home assistant, HomeHelper. It promises to streamline your home life with voice commands, seamless appliance integration, and even a friendly personality.
+			As you set it up, a notification pops up: “Allow HomeHelper to analyze audio for a better experience.” This would probably make HomeHelper a better... well, home helper, but should you let it?
+		`,
 		summary: 'Smart assistant audio analysis', 
 		image: '/images/smart_assistant.png',
 		articleLinks: [
@@ -466,21 +492,28 @@ export const gameQuestions = [
 			{
 				id: 'q12o1',
 				text: 'Allow all audio data analysis',
-				outcome: 'Your private conversations may be analyzed.',
+				outcome: `
+				You give HomeHelper full permission to analyze all your audio for that “better experience” it keeps promising. Your commands work flawlessly, the thermostat adjusts before you even ask, and it even recommends TV shows you didn’t know you’d love
+				Everything is so seamless, you almost forget it’s always listening. Except, of course, it is. HomeHelper’s constant analysis means that someone’s probably hearing more of your life than you intended.
+				`,
 				leaks: [], // ['audio_recordings', 'private_conversations']
 				conveniencePoints: 90
 			},
 			{
 				id: 'q12o2',
 				text: 'Allow limited command-based interactions only',
-				outcome: 'Limits audio data collection significantly.',
+				outcome: `
+					You cautiously restrict HomeHelper to only listen for direct commands. You sometimes find yourself shouting or repeating commands to get its attention, but most of the time, it works.
+				`,
 				leaks: [], // ['command_audio']
 				conveniencePoints: 50
 			},
 			{
 				id: 'q12o3',
 				text: 'Completely opt-out of audio data sharing',
-				outcome: 'Best protection of privacy.',
+				outcome: `
+					You decide to play it safe and shut disable all audio analysis. Sure, it’s not as convenient as it could be, but your privacy is secure. HomeHelper is basically a fancy clock now, but at least it’s a clock that respects your boundaries.
+				`,
 				leaks: [], // []
 				conveniencePoints: 0
 			}

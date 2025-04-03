@@ -533,7 +533,7 @@ export const gameQuestions = [
 	{
 		id: 'q11',
 		question: `
-			You stumble upon a flashy new app called BrowseBoost that promises to supercharge your internet experience with ad-free browsinng, personalized news feeds, and slick customization options. 
+			You stumble upon a flashy new app called BrowseBoost that promises to supercharge your internet experience with ad-free browsing, personalized news feeds, and slick customization options. 
 			It’s buzzing with five-star reviews and influencers hyping it up everywhere.
 			All you need to do is log in using third-party authentication through your Boogle account. It’s quick, easy, and lets you bypass the hassle of creating a whole new profile.
 		`,
@@ -580,7 +580,7 @@ export const gameQuestions = [
 				id: 'q11o3',
 				text: 'Avoid using third-party apps altogether',
 				outcome: `You refuse to authenticate BrowseBoost with your Boogle account. No login. No data shared. Unknown to you, Boogle’s engineers found a bug that was a potential data risk, but  patched it before anyone even had a chance to exploit it.
-					So, while everyone else is happily Browse away, you're missing out.`,
+					So, while everyone else is happily browsing away, you're missing out.`,
 				leaks: [],
 				satisfactionPoints: 0
 			}
@@ -600,7 +600,7 @@ export const gameQuestions = [
 				"title":"Apple to pay $95m to settle Siri 'listening' lawsuit"
 			}
 		],
-		writeup: "Smart home assistants rely on analyzing audio to function effectively, but this convenience comes with privacy trade-offs. Allowing constant audio analysis means the device is always listening, potentially capturing sensitive background conversations unrelated to commands. These recordings are often sent to company servers for processing and may be reviewed by human analysts to improve voice recognition accuracy, as highlighted by cases involving Amazon Alexa where users discovered recordings of private moments, including those involving children. While manufacturers state these reviews are for quality improvement, it raises concerns about who might be listening to personal conversations and how this data is secured and used.",
+		writeup: "",
 		options: [
 			{
 				id: 'q12o1',

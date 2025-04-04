@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import GamePage from './components/GamePage';
 import WriteupPage from './components/WriteupPage';
+import ResourcesPage from './components/ResourcesPage';
 
 // --- HomePage Component ---
 function HomePage() {
@@ -56,6 +57,12 @@ function App() {
 								>
 									Writeup
 								</Link>
+								<Link
+									to="/Resources"
+									className="text-gray-700 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium transition duration-150 ease-in-out" // Styling for links
+								>
+									Resources
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -68,6 +75,7 @@ function App() {
 						<Route path="/" element={<HomePage />} />
 						<Route path="/game" element={<GamePage />} />
 						<Route path="/writeup" element={<WriteupPage />} />
+						<Route path="/resources" element={<ResourcesPage />} />
 					</Routes>
 				</main>
 

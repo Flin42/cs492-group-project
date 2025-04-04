@@ -85,22 +85,24 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                                 <p className="text-sm text-gray-600 italic mb-2">
                                     "{question?.question}"
                                 </p>
-                                <p className="my-1 text-gray-800 flex justify-between">
+                                <p className="mt-2 mb-1 text-gray-800 flex justify-between">
                                     <span className="font-bold">Your choice:</span>
                                 </p>
                                 <p>
                                     {answer.selectedOptionText}
                                 </p>
-                                <p className="my-1 text-gray-800 flex justify-between">
+                                <p className="mt-2 mb-1 text-gray-800 flex justify-between">
                                     <span className="font-bold">The Outcome:</span>
                                 </p>
                                 <p>
                                     {selectedOption.outcome}
                                 </p>
                                 {answer.leaks && answer.leaks.length > 0 && (
-                                    <div className="mt-1">
-                                        <p className="text-sm text-red-600 font-medium">Potential Leaks:</p>
-                                        <ul className="list-disc list-inside text-sm text-red-600">
+                                    <div className="mt-2 mb-1">
+                                        <p className="font-bold text-gray-800 font-medium">
+                                            <span className="font-bold">Potential Leaks:</span>
+                                        </p>
+                                        <ul className="list-disc list-inside text-red-600">
                                         {answer.leaks.map((leak, index) => (
                                             <li key={index}>{leak}</li>
                                         ))}

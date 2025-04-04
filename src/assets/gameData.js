@@ -98,7 +98,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q3',
-		question: 'You\'re trying to resolve a frustrating issue with your online bank, Goose Bank. Instead of a human, you\'re directed to \FinBot,\' their \'friendly\' AI assistant. Before you can type your issue, a notice pops up: “To improve FinBot, your conversations may be reviewed and used for training purposes.” You just want your problem solved. Do you proceed?',
+		question: 'You\'re trying to resolve a frustrating issue with your online bank, Goose Bank. Instead of a human, you\'re directed to \"FinBot\", their friendly AI assistant. Before you can type your issue, a notice pops up: “To improve FinBot, your conversations may be reviewed and used for training purposes.” You just want your problem solved. Do you proceed?',
 		summary: 'Chatbot data for AI',
 		image: '/images/q3.avif',
 		articleLinks: [
@@ -112,7 +112,7 @@ export const gameQuestions = [
 			{
 				id: 'q3o1',
 				text: 'Continue using the chatbot (implicit consent)',
-				outcome: `You sigh and start explaining your problem to FinBot, pouring out account details and frustrations. FinBot eventually provides a semi-helpful answer. Months later, you read an article about how MegaCorp Bank's AI can now detect 'customer distress levels' with uncanny accuracy, thanks to the thousands of detailed, emotional support chats it was trained on – including yours.`,
+				outcome: `You sigh and start explaining your problem to FinBot, pouring out account details and frustrations. FinBot eventually provides a semi-helpful answer. Months later, you read an article about how Goose Bank's AI can now detect 'customer distress levels' with uncanny accuracy, thanks to the thousands of detailed, emotional support chats it was trained on – including yours.`,
 				leaks: [
 					'Conversations revealing personal details are stored and analyzed to improve AI systems, potentially exposing sensitive information',
 					'Personal information shared during chats is stored indefinitely, creating a permanent record of your interactions'
@@ -122,7 +122,7 @@ export const gameQuestions = [
 			{
 				id: 'q3o2',
 				text: 'Explicitly opt-out and request human support',
-				outcome: `You hunt for an 'opt-out' button or type 'CONNECT ME TO A HUMAN.' After a frustrating loop, you finally get connected to a real person. It takes longer, but you resolve your issue without feeding your financial anxieties to MegaCorp's AI. You feel slightly smug about protecting your data, even if it cost you an extra 20 minutes of hold music.`,
+				outcome: `You hunt for an 'opt-out' button or type 'CONNECT ME TO A HUMAN.' After a frustrating loop, you finally get connected to a real person. It takes longer, but you resolve your issue without feeding your financial anxieties to Goose Bank's AI. You feel slightly smug about protecting your data, even if it cost you an extra 20 minutes of hold music.`,
 				leaks: [],
 				satisfactionPoints: 0
 			}
@@ -193,7 +193,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q5',
-		question: 'You\'re Browse \'GadgetGalaxy,\' an online store famous for tech deals. Before you can even look at the latest smartwatches, a massive banner slides down: “We value your privacy (and delicious cookies)! Accept our cookie policy to enhance your shopping experience?” Your cursor hovers over the options.',
+		question: 'You\'re browsing GadgetGalaxy, an online store famous for tech deals. Before you can even look at the latest smartwatches, a massive banner slides down: “We value your privacy (and delicious cookies)! Accept our cookie policy to enhance your shopping experience?” Your cursor hovers over the options.',
 		summary: 'Cookie consent choices',
 		image: '/images/q5.png',
 		articleLinks: [
@@ -214,7 +214,7 @@ export const gameQuestions = [
 				"url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
 			}
 		],
-		writeup: "Accepting all cookies significantly increases the risk of your Personal Identification Information (PII) being compromised. As detailed by resources like those from Brown University's IT Help, cookies can store sensitive data such as login credentials, contact details, and even partial financial information. This data, if intercepted, can lead to identity theft and financial fraud. Furthermore, the Office of the Privacy Commissioner of Canada highlights the danger of third-party cookies, which enable companies to link your visits between different websites. This cross-site tracking allows for the creation of comprehensive profiles of your online behavior, revealing intimate details about your interests, habits, and even location. This aggregation of data, when combined with leaked PII, creates a heightened risk of targeted attacks and a severe erosion of your online privacy, as your actions across the web become a detailed, traceable record.",
+		writeup: "Accepting all cookies significantly increases the risk of your Personal Identification Information (PII) being compromised. Cookies can store sensitive data such as login credentials, contact details, and even partial financial information. This data, if intercepted, can lead to identity theft and financial fraud. Furthermore, the Office of the Privacy Commissioner of Canada highlights the danger of third-party cookies, which enable companies to link your visits between different websites. This cross-site tracking allows for the creation of comprehensive profiles of your online behavior, revealing details about your interests, habits, and even location. This aggregation of data, when combined with leaked PII, creates a heightened risk of targeted attacks and erosion of your online privacy. Cookies are indeed useful in making the online experience smoother, but it is important that individuals are aware of the risks.",
 		options: [
 			{
 				id: 'q5o1',
@@ -238,7 +238,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q6',
-		question: 'You\'re installing \'ConnectSphere,\' the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
+		question: 'You\'re installing ConnectSphere, the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
 		summary: 'App permission requests',
 		image: '/images/q6.png',
 		articleLinks: [
@@ -311,7 +311,7 @@ export const gameQuestions = [
 			{
 				id: 'q7o1',
 				text: 'Agree and use the app without further investigation',
-				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your browsing habits, even your chat messages and posts. A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.” Now, CoachGPT is spitting out trash talk eerily similar to yours and even predicting your team’s losses with brutal accuracy. All for the sake of ‘better fan engagement.’`,
+				outcome: `You dive into the app, soaking up scores and highlights. Meanwhile, it’s quietly gathering everything from your location to your browsing habits, even your chat messages and posts. A few months later, as part of a huge investigative report, you learn that the app is not only selling your data to third parties but also using your rants about bad referees and triumphant game predictions to train their in-house sports AI, “CoachGPT.” Now, CoachGPT is spitting out trash talk eerily similar to yours and even predicting your team’s losses with brutal accuracy.`,
 				leaks: [
 					"Your precise geolocation is tracked, revealing your movements and potentially your home/work locations",
 					"Your browsing habits within the app and potentially across other sites are monitored to determine your consumer interests",
@@ -331,9 +331,9 @@ export const gameQuestions = [
 	},
 	{
 		"id": "q8",
-		"question": "You order your usual 'Grande Iced Oat Milk Latte with Caramel Drizzle and a hint of Madagascar Cinnamon' through a coffee shop's app. The app remembers your order and offers a 'quick reorder' option every time you open it.",
+		"question": "You order your usual \"Grande Iced Oat Milk Latte with Caramel Drizzle and a hint of Madagascar Cinnamon\" through a coffee shop's app. The app remembers your order and offers a quick reorder option every time you open it.",
 		"summary": "Coffee app order history",
-		"image": "",
+		"image": "/images/q8.png",
 		"articleLinks": [],
 		"writeup": "The app simply stores your most recent order locally on your device for convenience. This is a common feature, and the data isn't necessarily being sent anywhere.",
 		"options": [
@@ -369,7 +369,7 @@ export const gameQuestions = [
 			you should take some precautions.
 		`,
 		summary: 'App sells user posts to advertisers',
-		image: '/images/q9.jpg',
+		image: '/images/q9.png',
 		"articleLinks": [
 			{
 				"url": "https://current360.com/instagrams-new-tos-what-do-they-mean/",
@@ -597,7 +597,7 @@ export const gameQuestions = [
 		"id": "q13",
 		"question": "You open your email and find a message from 'RiverZone': 'We noticed you were checking out that noise-canceling headset! Here are some other cool gadgets you might like...' It's a bit creepy how well they know your browsing habits, but also, those gadgets do look pretty sweet.",
 		"summary": "Online store product recommendations",
-		"image": "",
+		"image": "/images/q13.png",
 		"articleLinks": [],
 		"writeup": "While receiving targeted product recommendations can feel intrusive, it's often not a direct privacy violation. This is a common practice used by online retailers to enhance user experience and increase sales. The store's ability to show you these recommendations typically relies on browser cookies and your browsing history within their own site. This means they are primarily tracking your activity on their platform, not across the entire web. This data is often used to personalize your shopping experience, suggesting items you might genuinely be interested in. However, it's important to be aware of how the store uses this data and to review their privacy policy to understand your options.",
 		"options": [

@@ -181,13 +181,13 @@ function GamePage() {
 				</motion.div>
 			</AnimatePresence>
 
-			<button
+			{/* <button
 				onClick={handleDebugComplete}
 				className="m-30 w-100 h-10 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none"
 				title="Debug Button: Instantly End Game"
 			>
 				Debug: End Game
-			</button>
+			</button> */}
 		</div>
 	);
 }

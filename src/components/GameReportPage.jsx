@@ -102,10 +102,18 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                                         <span className="font-medium">Potential Leaks:</span> {answer.leaks.join(', ')}
                                     </p>
                                 )}
+                                {question.image && (
+                                        <img
+                                            src={question.image}
+                                            alt="image"
+                                            className="max-w-full h-auto max-h-124 object-contain mb-6 rounded mx-auto"
+                                        />
+                                )}
                             </li>
                         );
                     })}
                 </ul>
+
             </div>
 
             {/* Play Again Button */}

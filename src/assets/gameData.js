@@ -58,7 +58,7 @@ export const gameQuestions = [
 		id: 'q2',
 		question: 'After years of scrolling, posting questionable memes, and occasionally connecting with actual humans, you decide it’s finally time to leave FaceSpace, the dominant social media platform everyone seems glued to. You navigate through a maze of settings, finally finding the account closure options. What\'s your exit strategy?',
 		summary: 'Social media account deletion',
-		image: '/images/delete_account.png',
+		image: '/images/q2.png',
 		articleLinks: [
 			{
 				url: "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-staff-report-finds-large-social-media-video-streaming-companies-have-engaged-vast-surveillance#:~:text=The%20report%20found%20that%20the,and%20about%20both%20users%20and",
@@ -100,7 +100,7 @@ export const gameQuestions = [
 		id: 'q3',
 		question: 'You\'re trying to resolve a frustrating issue with your online bank, Goose Bank. Instead of a human, you\'re directed to \'FinBot,\' their \'friendly\' AI assistant. Before you can type your issue, a notice pops up: “To improve FinBot, your conversations may be reviewed and used for training purposes.” You just want your problem solved. Do you proceed?',
 		summary: 'Chatbot data for AI',
-		image: '/images/chatbot_ai.png',
+		image: '/images/q3.avif',
 		articleLinks: [
 			{
 				url: "https://www.cliffordchance.com/insights/resources/blogs/talking-tech/en/articles/2023/04/the-italian-data-protection-authority-halts-chatgpt-s-data-proce.html#:~:text=Prominent%20Garante%20board%20member%20Mr,reasons%3A%20(1)%20OpenAI%20has",
@@ -132,7 +132,7 @@ export const gameQuestions = [
 		id: 'q4',
 		question: 'All your friends have joined the brand new social media app GooseGram and have asked you to join them. After a few weeks, you decide to join this social network that everyone’s been buzzing about. As you reach the signup page, you’re faced with a massive wall of text containing vague terms and outlines about data sharing that would take hours to comb through. Do you dive in or take the shortcut?',
 		summary: 'Accepting app terms blindly',
-		image: '/images/terms_of_service.png',
+		image: '/images/q4.png',
 		articleLinks: [
 			{
 				"url": "https://www.facebook.com/terms",
@@ -195,7 +195,7 @@ export const gameQuestions = [
 		id: 'q5',
 		question: 'You\'re Browse \'GadgetGalaxy,\' an online store famous for tech deals. Before you can even look at the latest smartwatches, a massive banner slides down: “We value your privacy (and delicious cookies)! Accept our cookie policy to enhance your shopping experience?” Your cursor hovers over the options.',
 		summary: 'Cookie consent choices',
-		image: '/images/cookie_consent.png',
+		image: '/images/q5.png',
 		articleLinks: [
 			{
 				"title": "What to know about Internet cookies",
@@ -238,7 +238,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q6',
-		'You\'re installing \'ConnectSphere,\' the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
+		outcome: 'You\'re installing \'ConnectSphere,\' the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
 		summary: 'App permission requests',
 		image: '/images/app_permissions.png',
 		articleLinks: [
@@ -291,7 +291,7 @@ export const gameQuestions = [
 		id: 'q7',
 		question: 'You download the official app for your favorite sports league, the National Fun League (NFL), but notice there is no clear notice about what data may be collected. The app promises real-time updates, exclusive videos, and special offers. From such a huge brand and household name, how harmful could a simple sports app really be?',
 		summary: 'Sports app data collection',
-		image: '/images/sports_app.png',
+		image: '/images/q7.png',
 		articleLinks: [
 			{
 				"url": "https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d",
@@ -377,7 +377,7 @@ export const gameQuestions = [
 			you should take some precautions.
 		`,
 		summary: 'App sells user posts to advertisers',
-		image: '/images/photo_sharing.png',
+		image: '/images/q9.jpg',
 		"articleLinks": [
 			{
 				"url": "https://current360.com/instagrams-new-tos-what-do-they-mean/",
@@ -446,7 +446,7 @@ export const gameQuestions = [
 		"id": "q10",
 		"question": "You're deciding between two cars: a sleek, modern vehicle equipped with cutting-edge connectivity features like in-car Wi-Fi, voice recognition, and seamless smartphone integration, or a simpler, older model from the early 2000s without advanced capabilities. The new car’s infotainment system prompts you to accept the manufacturer's privacy policy to activate its services. The policy is lengthy and filled with complex and vague legal terms. Debating between the two vehicles, you weigh your options.",
 		"summary": "Car manufacturers collecting extensive personal data",
-		"image": "/images/car_data_collection.png",
+		"image": "/images/q10.png",
 		"articleLinks": [
 			{
 				"url": "https://foundation.mozilla.org/en/privacynotincluded/nissan/",
@@ -501,7 +501,7 @@ export const gameQuestions = [
 			All you need to do is log in using third-party authentication through your Boogle account. It’s quick, easy, and lets you bypass the hassle of creating a whole new profile.
 		`,
 		summary: 'Third-party app access bug',
-		image: '/images/social_bug.png',
+		image: '/images/q11.avif',
 		"articleLinks": [
 			{
 				"url": "https://www.theguardian.com/technology/2018/oct/08/google-plus-security-breach-wall-street-journal",
@@ -548,7 +548,7 @@ export const gameQuestions = [
 			As you set it up, a notification pops up: “Allow HomeHelper to analyze audio for a better experience.” This would probably make HomeHelper a better, well, home helper, but should you let it?
 		`,
 		summary: 'Smart assistant audio analysis',
-		image: '/images/smart_assistant.png',
+		image: '/images/q12.png',
 		articleLinks: [
 			{
 				"url":"https://www.bbc.com/news/articles/cr4rvr495rgo",

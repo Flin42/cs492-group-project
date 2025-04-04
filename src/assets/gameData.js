@@ -98,7 +98,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q3',
-		question: 'You\'re trying to resolve a frustrating issue with your online bank, Goose Bank. Instead of a human, you\'re directed to \'FinBot,\' their \'friendly\' AI assistant. Before you can type your issue, a notice pops up: “To improve FinBot, your conversations may be reviewed and used for training purposes.” You just want your problem solved. Do you proceed?',
+		question: 'You\'re trying to resolve a frustrating issue with your online bank, Goose Bank. Instead of a human, you\'re directed to \FinBot,\' their \'friendly\' AI assistant. Before you can type your issue, a notice pops up: “To improve FinBot, your conversations may be reviewed and used for training purposes.” You just want your problem solved. Do you proceed?',
 		summary: 'Chatbot data for AI',
 		image: '/images/q3.avif',
 		articleLinks: [
@@ -595,11 +595,11 @@ export const gameQuestions = [
 	},
 	{
 		"id": "q13",
-		"question": "You open your email and find a message from 'RiverZone': 'We noticed you were checking out that noise-canceling headset! Here are some other cool gadgets you might like...' It's a bit creepy how well they know your browsing habits, but also, those gadgets *do* look pretty sweet.",
+		"question": "You open your email and find a message from 'RiverZone': 'We noticed you were checking out that noise-canceling headset! Here are some other cool gadgets you might like...' It's a bit creepy how well they know your browsing habits, but also, those gadgets do look pretty sweet.",
 		"summary": "Online store product recommendations",
 		"image": "",
 		"articleLinks": [],
-		"writeup": "While receiving targeted product recommendations can feel intrusive, it's often not a direct privacy violation. This is a common practice used by online retailers to enhance user experience and increase sales. The store's ability to show you these recommendations typically relies on browser cookies and your browsing history *within their own site*. This means they are primarily tracking your activity on their platform, not across the entire web. This data is often used to personalize your shopping experience, suggesting items you might genuinely be interested in. However, it's important to be aware of how the store uses this data and to review their privacy policy to understand your options.",
+		"writeup": "While receiving targeted product recommendations can feel intrusive, it's often not a direct privacy violation. This is a common practice used by online retailers to enhance user experience and increase sales. The store's ability to show you these recommendations typically relies on browser cookies and your browsing history within their own site. This means they are primarily tracking your activity on their platform, not across the entire web. This data is often used to personalize your shopping experience, suggesting items you might genuinely be interested in. However, it's important to be aware of how the store uses this data and to review their privacy policy to understand your options.",
 		"options": [
 			{
 				"id": "q13o1",

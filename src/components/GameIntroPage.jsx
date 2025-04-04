@@ -16,7 +16,7 @@ function GameIntroPage({ onStart }) {
 
 	  <p className="text-lg mb-4 text-gray-700 max-w-3xl">
 	  	For the best experience, try to make realistic choices as if you were navigating them in the real world.
-		While the scenarios you encounter are fictional, they are inspired by real-life situations 
+		While the scenarios you encounter are fictional, with some exaggeration to keep things interesting, they are all inspired by real life situations 
 		and privacy practices observed in the digital world.
 	  </p>
       <button

@@ -56,7 +56,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q2',
-		question: 'You decide to close your account on a popular social media platform.',
+		question: 'After years of scrolling, posting questionable memes, and occasionally connecting with actual humans, you decide it’s finally time to leave FaceSpace, the dominant social media platform everyone seems glued to. You navigate through a maze of settings, finally finding the account closure options. What\'s your exit strategy?',
 		summary: 'Social media account deletion',
 		image: '/images/delete_account.png',
 		articleLinks: [
@@ -78,7 +78,7 @@ export const gameQuestions = [
 			{
 				id: 'q2o1',
 				text: 'Request standard account deletion',
-				outcome: 'Public profile hidden, data may remain archived internally.',
+				outcome: `You click 'Delete Account' and your profile vanishes from public view. Relief washes over you... until months later when targeted ads still reflect inside jokes you only shared in FaceSpace DMs. Turns out, deleted doesn't mean gone. Your data lingers in their archives, possibly sold off or used to train their next-gen AI that predicts breakup likelihoods.`,
 				leaks: [
 					'Your archived profile data is retained, allowing the company to restore your account or sell your information',
 					'Your photos remain stored, potentially accessible by employees or unauthorized third parties',
@@ -90,25 +90,15 @@ export const gameQuestions = [
 			{
 				id: 'q2o2',
 				text: 'Request full data deletion (GDPR/CCPA)',
-				outcome: 'Higher chance data is truly deleted.',
+				outcome: `You invoke your rights under GDPR/CCPA, demanding full data deletion. It takes extra steps and multiple strongly worded email, but you get confirmation that your data is being wiped from their databases.`,
 				leaks: [],
 				satisfactionPoints: 0
-			},
-			{
-				id: 'q2o3',
-				text: 'Deactivate account temporarily instead',
-				outcome: 'Your data remains fully stored and easily reactivated.',
-				leaks: [
-					'Your messages are retained, potentially allowing surveillance or data analysis',
-					'Your social interactions are still recorded and can be exploited for behavioral profiling'
-				],
-				satisfactionPoints: 40
 			}
 		],
 	},
 	{
 		id: 'q3',
-		question: 'When using a customer-support chatbot, the platform states your interactions may help train their AI.',
+		question: 'You\'re trying to resolve a frustrating issue with your online bank, Goose Bank. Instead of a human, you\'re directed to \'FinBot,\' their \'friendly\' AI assistant. Before you can type your issue, a notice pops up: “To improve FinBot, your conversations may be reviewed and used for training purposes.” You just want your problem solved. Do you proceed?',
 		summary: 'Chatbot data for AI',
 		image: '/images/chatbot_ai.png',
 		articleLinks: [
@@ -122,7 +112,7 @@ export const gameQuestions = [
 			{
 				id: 'q3o1',
 				text: 'Continue using the chatbot (implicit consent)',
-				outcome: 'Your interactions become training data.',
+				outcome: `You sigh and start explaining your problem to FinBot, pouring out account details and frustrations. FinBot eventually provides a semi-helpful answer. Months later, you read an article about how MegaCorp Bank's AI can now detect 'customer distress levels' with uncanny accuracy, thanks to the thousands of detailed, emotional support chats it was trained on – including yours.`,
 				leaks: [
 					'Conversations revealing personal details are stored and analyzed to improve AI systems, potentially exposing sensitive information',
 					'Personal information shared during chats is stored indefinitely, creating a permanent record of your interactions'
@@ -132,16 +122,9 @@ export const gameQuestions = [
 			{
 				id: 'q3o2',
 				text: 'Explicitly opt-out and request human support',
-				outcome: 'Your data is protected from AI training.',
+				outcome: `You hunt for an 'opt-out' button or type 'CONNECT ME TO A HUMAN.' After a frustrating loop, you finally get connected to a real person. It takes longer, but you resolve your issue without feeding your financial anxieties to MegaCorp's AI. You feel slightly smug about protecting your data, even if it cost you an extra 20 minutes of hold music.`,
 				leaks: [],
-				satisfactionPoints: 30
-			},
-			{
-				id: 'q3o3',
-				text: 'Request clarification about data usage',
-				outcome: 'Clarifies privacy implications, empowers informed decision-making.',
-				leaks: [],
-				satisfactionPoints: 60
+				satisfactionPoints: 0
 			}
 		],
 	},
@@ -210,7 +193,7 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q5',
-		question: 'You visit an online store and encounter a cookie consent popup.',
+		question: 'You\'re Browse \'GadgetGalaxy,\' an online store famous for tech deals. Before you can even look at the latest smartwatches, a massive banner slides down: “We value your privacy (and delicious cookies)! Accept our cookie policy to enhance your shopping experience?” Your cursor hovers over the options.',
 		summary: 'Cookie consent choices',
 		image: '/images/cookie_consent.png',
 		articleLinks: [
@@ -236,7 +219,7 @@ export const gameQuestions = [
 			{
 				id: 'q5o1',
 				text: 'Accept all cookies',
-				outcome: 'Enables extensive tracking and personalized ads.',
+				outcome: `You click 'Accept All,' eager to get to the gadgets. The site works smoothly, remembering your cart and showing relevant recommendations. But soon, ads for the exact smartwatch you lingered on follow you everywhere – news sites, social media, even your weather app (since when did it sell things). GadgetGalaxy and its partners now know all your wants and needs thanks to the extensive tracking you enabled.`,
 				leaks: [
 					"Your browser history across multiple websites is tracked to build a detailed interest profile",
 					"Your site preferences and interaction data are stored to personalize your experience and target ads",
@@ -247,26 +230,15 @@ export const gameQuestions = [
 			{
 				id: 'q5o2',
 				text: 'Accept only necessary cookies',
-				outcome: 'Minimal tracking, basic website functionality maintained.',
-				leaks: [
-					"Essential session data, like login status, is stored temporarily but doesn't track you across sites"
-				],
+				outcome: `You select 'Accept Necessary Only.' The site functions, letting you browse and add items to your cart during your visit. However, you don't get personalized recommendations, and the ads you see later are generic. You avoided the cross site tracking, maintaining some privacy, but missed out on potentially useful personalization.`,
+				leaks: [],
 				satisfactionPoints: 60
-			},
-			{
-				id: 'q5o3',
-				text: 'Manage preferences manually',
-				outcome: 'Limits data exposure by explicitly controlling cookies.',
-				leaks: [
-					"Specific data points you allowed (like site settings) are stored, but tracking cookies are blocked."
-				],
-				satisfactionPoints: 30
 			}
 		],
 	},
 	{
 		id: 'q6',
-		question: 'A social media app asks for extensive permissions (microphone, contacts, gallery, camera).',
+		'You\'re installing \'ConnectSphere,\' the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
 		summary: 'App permission requests',
 		image: '/images/app_permissions.png',
 		articleLinks: [
@@ -288,7 +260,7 @@ export const gameQuestions = [
 			{
 				id: 'q6o1',
 				text: 'Accept all permissions',
-				outcome: 'Leads to extensive data collection.',
+				outcome: `You tap 'Allow' for everything, excited to try the AR filters. The app works great! It finds all your friends instantly and the filters are fun. Later, you're startled when ConnectSphere suggests tagging a friend in a photo before you even upload it, recognizing them from your gallery. You also hear rumors the app listens for keywords via the microphone to suggest relevant content. The 'full experience' clearly includes full access to your data.`,
 				leaks: [
 					"Your entire contact list is uploaded and potentially used to find connections or sold to data brokers",
 					"The app gains access to all photos and videos in your gallery, potentially scanning them for metadata or content",
@@ -300,7 +272,7 @@ export const gameQuestions = [
 			{
 				id: 'q6o2',
 				text: 'Only grant necessary permissions',
-				outcome: 'Limited functionality but reduced privacy risk.',
+				outcome: `You decide ConnectSphere only really needs camera access for the filters and gallery access for posting photos you choose. You deny microphone and contacts. The AR filters work, and you can post pictures, but friend finding is manual, and some audio-reactive features are disabled. You've balanced functionality with privacy, avoiding the more invasive data grabs.`,
 				leaks: [
 					"Only the photos you explicitly choose to upload are accessed by the app"
 				], // Assuming only gallery/camera needed for posting
@@ -309,7 +281,7 @@ export const gameQuestions = [
 			{
 				id: 'q6o3',
 				text: 'Reject all permissions',
-				outcome: 'Maximum privacy protection, reduced app functionality.',
+				outcome: `Alarmed by the requests, you deny all permissions. ConnectSphere becomes virtually unusable. You can't take photos, post existing ones, use AR filters, or find friends easily. You uninstall the app, concluding that the 'full experience' isn't worth granting such broad access to your personal information. Your privacy remains intact, but you miss out on the app entirely.`,
 				leaks: [],
 				satisfactionPoints: 0
 			}

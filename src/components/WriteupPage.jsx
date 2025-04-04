@@ -86,10 +86,16 @@ function WriteupPage() {
 							  <p className="text-sm text-gray-700 whitespace-pre-wrap">{option.outcome.trim()}</p>
 							</div>
 							<div className="text-sm mt-3">
-							  <span className="font-medium text-red-600">Data Leaks:</span>
-							  <span className="ml-2 text-red-700">
-								{option.leaks && option.leaks.length > 0 ? option.leaks.join(', ') : 'None'}
-							  </span>
+								<span className="font-medium text-red-600">Data Leaks:</span>
+								{option.leaks && option.leaks.length > 0 ? (
+									<ul className="list-disc list-inside ml-4 text-red-700">
+									{option.leaks.map((leak, index) => (
+										<li key={index}>{leak}</li>
+									))}
+									</ul>
+								) : (
+									<span className="ml-2 text-red-700">None</span>
+								)}
 							</div>
 							<div className="text-sm mt-1">
 							  <span className="font-medium text-indigo-600">Satisfaction Points:</span>

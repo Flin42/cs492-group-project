@@ -98,10 +98,15 @@ function GameReportPage({ gameQuestions, userAnswers, totalSatisfactionPoints, o
                                     {selectedOption.outcome}
                                 </p>
                                 {answer.leaks && answer.leaks.length > 0 && (
-                                    <p className="text-sm text-red-600 mt-1">
-                                        <span className="font-medium">Potential Leaks:</span> {answer.leaks.join(', ')}
-                                    </p>
-                                )}
+                                    <div className="mt-1">
+                                        <p className="text-sm text-red-600 font-medium">Potential Leaks:</p>
+                                        <ul className="list-disc list-inside text-sm text-red-600">
+                                        {answer.leaks.map((leak, index) => (
+                                            <li key={index}>{leak}</li>
+                                        ))}
+                                        </ul>
+                                    </div>
+                                    )}
                                 {question.image && (
                                         <img
                                             src={question.image}

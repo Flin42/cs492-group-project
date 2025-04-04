@@ -238,9 +238,9 @@ export const gameQuestions = [
 	},
 	{
 		id: 'q6',
-		outcome: 'You\'re installing \'ConnectSphere,\' the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
+		question: 'You\'re installing \'ConnectSphere,\' the hottest new social app that promises unique augmented reality filters and seamless friend finding. During setup, it bombards you with permission requests: access your camera, microphone, entire photo gallery, and all your contacts. “Granting these helps us provide the full ConnectSphere experience!” the prompt cheerfully claims. What do you do?',
 		summary: 'App permission requests',
-		image: '/images/app_permissions.png',
+		image: '/images/q6.png',
 		articleLinks: [
 			{
 				"title": "Android Owners, Watch Out for These 7 Shady VPN Apps",
@@ -330,43 +330,35 @@ export const gameQuestions = [
 		],
 	},
 	{
-		id: 'q8',
-		question: 'You join a new trendy social network called FriendShare. It asks you to quickly accept the Terms of Service without clearly highlighting key points.',
-		summary: 'Quickly accept network terms',
-		image: '/images/social_network.png',
-		articleLinks: [
-			"https://www.usatoday.com/story/tech/2020/01/28/not-reading-the-small-print-is-privacy-policy-fail/4565274002/"
-		],
-		writeup: "Clicking 'I agree' without reading is common, but risky. Terms of Service and Privacy Policies often contain clauses allowing companies broad rights to collect, use, and share your personal data, including profile information, contacts, location, browsing habits, and user-generated content. This data can be used for targeted advertising, sold to data brokers, or used for purposes you didn't anticipate. Failing to read these documents means you might unknowingly consent to practices that compromise your privacy, potentially leading to unwanted tracking, data breaches, or misuse of your information.",
-		options: [
+		"id": "q8",
+		"question": "You order your usual 'Grande Iced Oat Milk Latte with Caramel Drizzle and a hint of Madagascar Cinnamon' through a coffee shop's app. The app remembers your order and offers a 'quick reorder' option every time you open it.",
+		"summary": "Coffee app order history",
+		"image": "",
+		"articleLinks": [],
+		"writeup": "The app simply stores your most recent order locally on your device for convenience. This is a common feature, and the data isn't necessarily being sent anywhere.",
+		"options": [
 			{
-				id: 'q8o1',
-				text: 'Accept terms quickly without reading',
-				outcome: 'You unknowingly agree to broad data sharing.',
-				leaks: [
-					"Your profile information (name, age, etc.) is shared with unspecified third parties",
-					"The app accesses and stores your contact list under the guise of finding friends",
-					"Content you share (posts, photos) can be used by the network for various purposes, including advertising"
-				],
-				satisfactionPoints: 90
+				"id": "q8o1",
+				"text": "Embrace the convenience: Use the 'quick reorder' option.",
+				"outcome": "You quickly reorder your usual drink each time, enjoying the convenience. The app efficiently remembers your preferences, making your coffee runs faster and easier.",
+				"leaks": [],
+				"satisfactionPoints": 90
 			},
 			{
-				id: 'q8o2',
-				text: 'Use a browser extension to briefly highlight red flags',
-				outcome: 'Improved privacy through proactive checking.',
-				leaks: [
-					"Basic signup information might be captured before you fully assess the terms and potentially abandon the app"
-				],
-				satisfactionPoints: 50
+				"id": "q6o2",
+				"text": "Uninstall the app",
+				"outcome": "You uninstall the app entirely. You eliminate the potential for the app to store your order history and track your preferences. You now must order in person or use a different method. This gives you the highest amount of privacy, but removes the convenience of the app entirely.",
+				"leaks": [],
+				"satisfactionPoints": 0
 			},
 			{
-				id: 'q8o3',
-				text: 'Decline joining completely',
-				outcome: 'You fully protect your data.',
-				leaks: [],
-				satisfactionPoints: 0
+				"id": "q6o3",
+				"text": "Order manually each time, avoiding the 'quick reorder'.",
+				"outcome": "You manually input your order each time, even though the app suggests the quick reorder. You feel safer knowing you are not storing your order history. Ordering takes longer, but you maintain more privacy.",
+				"leaks": [],
+				"satisfactionPoints": 50
 			}
-		],
+		]
 	},
 	{
 		id: 'q9',
@@ -600,5 +592,36 @@ export const gameQuestions = [
 				satisfactionPoints: 0
 			}
 		],
+	},
+	{
+		"id": "q13",
+		"question": "You open your email and find a message from 'RiverZone': 'We noticed you were checking out that noise-canceling headset! Here are some other cool gadgets you might like...' It's a bit creepy how well they know your browsing habits, but also, those gadgets *do* look pretty sweet.",
+		"summary": "Online store product recommendations",
+		"image": "",
+		"articleLinks": [],
+		"writeup": "While receiving targeted product recommendations can feel intrusive, it's often not a direct privacy violation. This is a common practice used by online retailers to enhance user experience and increase sales. The store's ability to show you these recommendations typically relies on browser cookies and your browsing history *within their own site*. This means they are primarily tracking your activity on their platform, not across the entire web. This data is often used to personalize your shopping experience, suggesting items you might genuinely be interested in. However, it's important to be aware of how the store uses this data and to review their privacy policy to understand your options.",
+		"options": [
+			{
+				"id": "q13o1",
+				"text": "Ignore the email and continue browsing.",
+				"outcome": "You ignore the email, accepting the targeted recommendations as part of the online shopping experience. You continue to browse the store and potentially see more personalized product recommendations.",
+				"leaks": [],
+				"satisfactionPoints": 90
+			},
+			{
+				"id": "q13o2",
+				"text": "Unsubscribe from promotional emails.",
+				"outcome": "You unsubscribe from promotional emails, preventing further targeted recommendations. You avoid further targeted marketing but may miss out on relevant product suggestions.",
+				"leaks": [],
+				"satisfactionPoints": 70
+			},
+			{
+				"id": "q13o3",
+				"text": "Stop using the platform.",
+				"outcome": "You decide to stop using the platform entirely. You avoid all future targeted recommendations and data collection from this store. This provides the highest level of privacy protection, but you lose access to the store's products and services.",
+				"leaks": [],
+				"satisfactionPoints": 0
+			}
+		]
 	}
 ];

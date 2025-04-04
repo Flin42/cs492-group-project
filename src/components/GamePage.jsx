@@ -8,7 +8,7 @@ import GameIntroPage from './GameIntroPage';
 
 
 function getSatisfactionColor(points) {
-    const maxPoints = 700;
+    const maxPoints = 600;
 	const numSteps = 5;
 	const stepSize = maxPoints / numSteps;
     const thresholds = [];
@@ -144,7 +144,7 @@ function GamePage() {
 						<img
 							src={currentQuestion.image}
 							alt="image"
-							className="max-w-full h-auto max-h-124 object-contain mb-6 rounded mx-auto"
+							className="max-w-164 h-auto max-h-124 object-contain mb-6 rounded mx-auto"
 						/>
 					)}
 					<div className="max-w-164">

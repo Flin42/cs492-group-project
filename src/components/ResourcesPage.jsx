@@ -5,7 +5,7 @@ const citations = [
 		author: "EY",
 		title: "How Location Tracking Is Raising the Stakes on Privacy Protection",
 		source: "EY",
-		date: "Accessed April 4, 2025",
+		date: "",
 		url: "https://www.ey.com/en_gl/insights/forensic-integrity-services/how-location-tracking-is-raising-the-stakes-on-privacy-protection"
 	},
 	{
@@ -54,14 +54,14 @@ const citations = [
 		"author": "Meta",
 		"title": "Terms of Service",
 		"source": "Facebook",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://www.facebook.com/terms/"
 	},
 	{
 		"author": "Meta",
 		"title": "Data Policy",
 		"source": "Instagram Help Center",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://help.instagram.com/155833707900388"
 	},
 	{
@@ -96,21 +96,21 @@ const citations = [
 		"author": "Office of the Privacy Commissioner of Canada",
 		"title": "Web Tracking with Cookies",
 		"source": "Office of the Privacy Commissioner of Canada",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://www.priv.gc.ca/en/privacy-topics/technology/online-privacy-tracking-cookies/cookies/02_05_d_49/"
 	},
 	{
 		"author": "Brown University Office of Information Technology",
 		"title": "Know Your Cookies",
 		"source": "Brown University",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://ithelp.brown.edu/kb/articles/know-your-cookies"
 	},
 	{
 		"author": "OWASP Foundation",
 		"title": "Session Management Cheat Sheet",
 		"source": "OWASP Cheat Sheet Series",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
 	},
 	{
@@ -128,7 +128,7 @@ const citations = [
 		"url": "https://www.wsj.com/articles/nfl-teams-gathered-detailed-consumer-data-without-standard-notice-or-opt-outs-ab70582d"
 	},
 	{
-		"author": "CBC News",
+		"author": "Nick Logan",
 		"title": "TikTok's Data Collection Practices Raise Privacy Concerns in Canada",
 		"source": "CBC News",
 		"date": "February 23, 2023",
@@ -138,7 +138,7 @@ const citations = [
 		"author": "BBB National Programs",
 		"title": "NFL Voluntarily Complies with Consumer Data Privacy Standards",
 		"source": "BBB National Programs",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://bbbprograms.org/media/newsroom/decisions/daap-nfl"
 	},
 	{
@@ -177,21 +177,21 @@ const citations = [
 		"url": "https://foundation.mozilla.org/en/privacynotincluded/nissan/"
 	},
 	{
-		"author": "Mozilla Foundation",
+		"author": "Jen Caltrider, Misha Rykov, Zoë MacDonald",
 		"title": "It's Official: Cars Are the Worst Product Category We Have Ever Reviewed for Privacy",
 		"source": "Mozilla Foundation",
 		"date": "September 6, 2023",
 		"url": "https://foundation.mozilla.org/en/privacynotincluded/articles/its-official-cars-are-the-worst-product-category-we-have-ever-reviewed-for-privacy/"
 	},
 	{
-		"author": "Hibaq Farah and Jasper Jolly",
+		"author": "Hibaq Farah, Jasper Jolly",
 		"title": "From Sex Life to Politics: Car Driver Data Grab Presents ‘Privacy Nightmare’, Says Study",
 		"source": "The Guardian",
 		"date": "September 6, 2023",
 		"url": "https://www.theguardian.com/business/2023/sep/06/cars-collect-extensive-personal-data-on-drivers-study-warns"
 	},
 	{
-		"author": "Julia Carrie Wong and Olivia Solon",
+		"author": "Julia Carrie Wong, Olivia Solon",
 		"title": "Google to Shut Down Google+ After Failing to Disclose User Data Leak",
 		"source": "The Guardian",
 		"date": "October 8, 2018",
@@ -205,14 +205,14 @@ const citations = [
 		"url": "https://therecord.media/google-agrees-to-settle-data-leak"
 	},
 	{
-		"author": "BBC News",
+		"author": "Imran Rahman-Jones",
 		"title": "Apple to Pay $95m to Settle Siri 'Listening' Lawsuit",
 		"source": "BBC News",
-		"date": "Accessed April 4, 2025",
+		"date": "",
 		"url": "https://www.bbc.com/news/articles/cr4rvr495rgo"
 	},
 	{
-		"author": "USA Today",
+		"author": "Anthony Robledo",
 		"title": "Amazon Echo and Alexa Are Listening More Than You Think: How to Protect Your Privacy",
 		"source": "USA Today",
 		"date": "March 17, 2025",
@@ -228,7 +228,7 @@ function ResourcesPage() {
             <ul className="list-none">
                 {citations.map((citation, index) => (
                     <li key={index} className="mb-4 text-left">
-                        <span className="font-bold">[{index + 1}]</span> {citation.author} ({citation.date}). <i>{citation.title}</i>. {citation.source}. Retrieved from{' '}
+                        <span className="font-bold">[{index + 1}]</span> {citation.author}  {citation.date ? `(${citation.date})` : ''}. <i>{citation.title}</i>. {citation.source}. Retrieved from{' '}
                         <a href={citation.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
                             {citation.url}
                         </a>

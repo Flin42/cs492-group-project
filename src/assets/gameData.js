@@ -73,6 +73,10 @@ export const gameQuestions = [
 			{
 				url: "https://www.ftc.gov/reports/look-behind-screens-examining-data-practices-social-media-video-streaming-services",
 				title: "A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services"
+			},
+			{
+				url: "https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-doj-charge-amazon-violating-childrens-privacy-law-keeping-kids-alexa-voice-recordings-forever",
+				title: "FTC and DOJ Charge Amazon with Violating Children’s Privacy Law by Keeping Kids’ Alexa Voice Recordings Forever and Undermining Parents’ Deletion Requests"
 			}
 		],
 		writeup: "A 2024 FTC staff report sheds light on the significant privacy risks associated with social media and video streaming platforms, highlighting the critical distinction between temporarily deactivating an account and requesting full data deletion. As the report indicates, these companies engage in 'vast surveillance' of users, often retaining extensive data even after account deactivation. This practice exposes users to prolonged privacy vulnerabilities, as their information remains on company servers, susceptible to breaches or misuse. In contrast, pursuing a full data deletion, while not always guaranteeing complete removal due to backup systems and legal obligations, significantly reduces this risk. The FTC's findings underscore the importance of understanding a company's data retention policies and the necessity of advocating for true data deletion to minimize long-term privacy threats.",
@@ -598,6 +602,14 @@ export const gameQuestions = [
 			{
 				"url":"https://www.bbc.com/news/articles/cr4rvr495rgo",
 				"title":"Apple to pay $95m to settle Siri 'listening' lawsuit"
+			},
+			{
+				url: "https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-doj-charge-amazon-violating-childrens-privacy-law-keeping-kids-alexa-voice-recordings-forever",
+				title: "FTC and DOJ Charge Amazon with Violating Children’s Privacy Law by Keeping Kids’ Alexa Voice Recordings Forever and Undermining Parents’ Deletion Requests"
+			},
+			{
+				url: "https://www.usatoday.com/story/tech/2025/03/17/amazon-echo-alexa-reporting-privacy/82503576007/",
+				title: "Amazon is removing an Echo privacy setting that keeps Alexa recordings from the company"
 			}
 		],
 		writeup: "",
